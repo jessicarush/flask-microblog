@@ -95,7 +95,7 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         # default = 'http%3A%2F%2Fcyan.red%2Fimages%2Fmystery_avatar.png'
         default = 'mm'
-        return f'https://www.gravatar.com/avatar/{digest}?s={size}&d={default}'
+        return 'https://www.gravatar.com/avatar/{}?s={}&d={}'.format(digest, size, default)
 
     def follow(self, user):
         if not self.is_following(user):
