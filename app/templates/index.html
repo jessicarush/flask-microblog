@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- value substitution -->
+    <h1>{{ _('Hello, %(username)s', username=current_user.username.title()) }}.</h1>
+
+    <!-- check to see if form was passed --->
+    <!-- as this template is also used for "explore" which has no form -->
+    {% if form %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.post.label }}<br>
+            <!-- Display error message if field empty or exceedes max -->
+            {% for error in form.post.errors %}
+            <span class="error">{{ error }}</span><br>
+            {% endfor %}
+            {{ form.post(class="multiple") }}
+        </p>
+        <p class="button">{{ form.submit(class="button") }}</p>
+        <hr class="thin">
+    </form>
+    {% endif %}
+
+    <!-- loops -->
+    {% for post in posts %}
+        <!-- sub-template -->
+        {% include '_post.html' %}
+    {% endfor %}
+
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">{{ _('newer posts') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('newer posts') }}</span>
+        {% endif %}
+        <span class="separator">&</span>
+        {% if next_url %}
+            <a href="{{ next_url }}">{{ _('older posts') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('older posts') }}</span>
+        {% endif %}
+    </div>
+
+{% endblock %}

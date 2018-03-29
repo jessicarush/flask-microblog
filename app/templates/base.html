@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <!-- conditional statements -->
+        {% if title %}
+        <title>{{ title }} | Microblog</title>
+        {% else %}
+        <title>Microblog</title>
+        {% endif %}
+
+        <link href="{{ url_for('static', filename='img/favicon.ico' )}}" rel="shortcut icon" type="image/x-icon" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css' )}}">
+        <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Ovo" rel="stylesheet">
+
+        {{ moment.include_jquery() }}
+        {{ moment.include_moment() }}
+        {{ moment.lang(g.locale) }}
+
+    </head>
+
+    <body>
+    <div class="container">
+        <div>
+            <a href="{{ url_for('main.index') }}" class="title"> Microblog:</a>
+            <a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
+            {% else %}
+            <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+            <a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
+            {% endif %}
+            <!-- search field -->
+            {% if g.search_form %}
+            <form method="get" class="search" action="{{ url_for('main.search') }}">
+                {{ g.search_form.q(class='search', placeholder=g.search_form.q.label.text) }}
+            </form>
+            {% endif %}
+            <!-- the other forms have the action attribute empty, because they
+            were submitted to the same page that rendered the form. This form
+            is special because it appears in all pages, so we need to tell it
+            explicitly where it needs to be submitted, which is a new route
+            that is specifically dedicated to handling searches. This form
+            uses get instead of post, because we want to have the search query
+            be part of the url, so if someone want to bookmark or share the
+            result page, they can (but you can only see the oage if you're
+            logged in of course) -->
+            <hr class="thick">
+        </div>
+
+
+        <div class="content">
+        <!-- display flashed messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="error">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {%  endfor %}
+        </ul>
+        {%  endif %}
+        {%  endwith %}
+
+        <!-- template inheritance -->
+        {% block content %}{% endblock %}
+        </div>
+        <footer>
+            <hr class="thick">
+            <a href="http://cyan.red" class="footer">cyan.red</a>
+        </footer>
+    </div>
+
+    <script>
+        function translate(sourceElem, destElem, sourceLang, destLang) {
+            $(destElem).html('<img src="{{ url_for('static', filename='img/loading.gif') }}" class="loading">');
+            $.post('/translate', {
+                text: $(sourceElem).text(),
+                source_language: sourceLang,
+                dest_language: destLang
+            }).done(function(response) {
+                $(destElem).text(response['text'])
+            }).fail(function() {
+                $(destElem).text("{{ _('Error: Could not contact server.') }}");
+            });
+        }
+    </script>
+
+
+
+    </body>
+</html>
+
+
+{# <!-- Regarding the links above, they could be written as <a href='/index'>.
+The problem with writing links directly in templates and source files is that
+if one day you decide to reorganize your links, then you are going to have to
+search and replace these links in your entire application. To have better
+control, Flask provides the url_for() function, which generates URLs using its
+internal mapping of URLs to view functions. For example, url_for('login')
+returns /login. The argument to url_for() is the endpoint name, which is the
+name of the view function.
+
+The get_flashed_messages() function comes from Flask, and returns a
+list of all the messages that have been registered with flash() previously.
+An interesting property of these flashed messages is that once they are
+requested through the get_flashed_messages function they are removed from the
+message list, so they appear only once after the flash() function is called.
+
+The is_anonymous property is one of the attributes that Flask-Login adds to
+user objects through the UserMixin class.
+
+To effectively display timezones we need to include moment.js. The most direct
+way is to explicitly add a <script> tag that imports the library, but
+Flask-Moment makes it easier, by exposing a moment.include_moment() function
+that generates the <script> tag
+--> #}

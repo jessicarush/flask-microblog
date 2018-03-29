@@ -1,0 +1,36 @@
+<!-- This is a sub-template -->
+<div class="post">
+    <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar_mini"><img src="{{ post.author.avatar(200) }}" class="avatar_mini"></a>
+    <p>
+        <a href="{{ url_for('main.user', username=post.author.username) }}">
+        {{ post.author.username.title() }}</a>
+        <span class="post_dates">{{ moment(post.timestamp).fromNow() }}:</span>
+
+        <!-- In order to identify posts that will be passed via JavaScript to
+        the route that handles the translation API, we need to wrap the content
+        with an id. This will assign a unique id to each post with the format
+        post1, post2 etc. -->
+        <span id="post{{ post.id }}">{{ post.body }}</span>
+
+        <!-- Add a "Translate" link next to any posts that are not in the
+        language that is active for the current user. The link will only
+        appear on posts for which the language was detected, and this
+        language does not match the language selected by the function decorated
+        with Flask-Babel's localeselector decorator. (see __init__.py)
+        The span tags are used as a placeholder for the translation -->
+
+        {% if post.language and post.language != g.locale %}
+        <span class="translation" id="translation{{ post.id }}">
+            <a href="javascript:translate(
+                        '#post{{ post.id }}',
+                        '#translation{{ post.id }}',
+                        '{{ post.language }}',
+                        '{{ g.locale }}');">{{ _('Translate') }}</a>
+
+        </span>
+        {% endif %}
+
+
+    </p>
+    <hr class="clear">
+</div>

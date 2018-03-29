@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>500 | Microblog</title>
+        <link href="{{ url_for('static', filename='img/favicon.ico' )}}" rel="shortcut icon" type="image/x-icon" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css' )}}">
+        <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Ovo" rel="stylesheet">
+    </head>
+
+    <body class="error_500">
+    <div class="error_page">
+        <h1>{{ _("Shit, an internal server error.") }}</h1>
+        <p>{{ _("Noted. Let's") }}<a href="{{ url_for('main.index') }}"> {{ _('move on.') }}</a></p>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,326 @@
+# French translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-03-26 11:06-0700\n"
+"PO-Revision-Date: 2018-03-01 13:45-0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: app/__init__.py:19
+msgid "Please log in to access that page."
+msgstr "Veuillez vous connecter pour accéder à cette page."
+
+#: app/translate.py:9
+msgid "Error: translation service is not configured."
+msgstr "Erreur: le service de traduction n'est pas configuré."
+
+#: app/translate.py:17
+msgid "Error: translation service failed."
+msgstr "Erreur: le service de traduction a échoué."
+
+#: app/auth/email.py:8
+msgid "Microblog: Password Reset"
+msgstr "Microblog: Réinitialiser le mot de passe"
+
+#: app/auth/forms.py:9
+msgid "Username or email"
+msgstr "Nom d'utilisateur ou email"
+
+#: app/auth/forms.py:10 app/auth/forms.py:21 app/auth/forms.py:30
+msgid "Password"
+msgstr "Mot de passe"
+
+#: app/auth/forms.py:11
+msgid "Remember me"
+msgstr "Souviens-toi de moi"
+
+#: app/auth/forms.py:12 app/templates/auth/login.html:4
+msgid "Sign In"
+msgstr "Se connecter"
+
+#: app/auth/forms.py:16 app/auth/forms.py:29 app/main/forms.py:24
+msgid "Email"
+msgstr "Email"
+
+#: app/auth/forms.py:17
+msgid "request password reset"
+msgstr "demande de réinitialisation"
+
+#: app/auth/forms.py:22 app/auth/forms.py:31
+msgid "Repeat Password"
+msgstr "Répéter le mot de passe"
+
+#: app/auth/forms.py:24
+msgid "save this password"
+msgstr "enregistrer ce mot de passe"
+
+#: app/auth/forms.py:28 app/main/forms.py:23 app/templates/user.html:7
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: app/auth/forms.py:33 app/templates/auth/register.html:4
+msgid "Register"
+msgstr "registre"
+
+#: app/auth/forms.py:38 app/main/forms.py:37
+msgid "That username is taken."
+msgstr "Ce nom d'utilisateur est déjà pris."
+
+#: app/auth/forms.py:43 app/main/forms.py:43
+msgid "That email is already registered."
+msgstr "Cet email est déjà enregistré."
+
+#: app/auth/routes.py:23
+msgid "You are registered! Now try signing in."
+msgstr "Vous êtes enregistré! Maintenant, essayez de vous connecter."
+
+#: app/auth/routes.py:41
+msgid "Can't find that username or email."
+msgstr "Impossible de trouver ce nom d'utilisateur ou ce courriel."
+
+#: app/auth/routes.py:45
+msgid "Incorrect password."
+msgstr "Mot de passe incorrect."
+
+#: app/auth/routes.py:71
+msgid "Check your email for the link to reset your password."
+msgstr "Vérifiez votre email pour le lien pour réinitialiser votre mot de passe."
+
+#: app/auth/routes.py:91
+msgid "Your password has been reset."
+msgstr "Votre mot de passe a été réinitialisé."
+
+#: app/main/forms.py:10
+msgid "Search"
+msgstr "Chercher"
+
+#: app/main/forms.py:25 app/templates/user.html:16
+msgid "About me"
+msgstr "À propos de moi"
+
+#: app/main/forms.py:26
+msgid "Submit"
+msgstr "Soumettre"
+
+#: app/main/forms.py:47
+msgid "Say something"
+msgstr "Dis quelquechose"
+
+#: app/main/forms.py:49
+msgid "Post"
+msgstr "Publier"
+
+#: app/main/routes.py:59
+msgid "Posted!"
+msgstr "Publié"
+
+#: app/main/routes.py:106
+msgid "Your changes have been saved."
+msgstr "Vos changements ont été enregistrés."
+
+#: app/main/routes.py:120 app/main/routes.py:136
+#, python-format
+msgid "User %(username)s not found."
+msgstr "Utilisateur %(username)s non trouvé"
+
+#: app/main/routes.py:123
+msgid "You can't follow yourself."
+msgstr "Tu ne peux pas te suivre."
+
+#: app/main/routes.py:127
+#, python-format
+msgid "You are following %(username)s."
+msgstr "Vous suivez %(username)s."
+
+#: app/main/routes.py:139
+msgid "You can't unfollow yourself."
+msgstr "Vous ne pouvez pas vous déconnecter."
+
+#: app/main/routes.py:143
+#, python-format
+msgid "You are not following %(username)s."
+msgstr "Tu ne suis pas %(username)s."
+
+#: app/main/routes.py:159
+msgid "search"
+msgstr "chercher"
+
+#: app/templates/_post.html:28
+msgid "Translate"
+msgstr "Traduire"
+
+#: app/templates/base.html:24
+msgid "Explore"
+msgstr "Explorer"
+
+#: app/templates/base.html:26
+msgid "Login"
+msgstr "Se connecter"
+
+#: app/templates/base.html:28
+msgid "Profile"
+msgstr "Profil"
+
+#: app/templates/base.html:29
+msgid "Logout"
+msgstr "se déconnecter"
+
+#: app/templates/base.html:82
+msgid "Error: Could not contact server."
+msgstr "Erreur: Impossible de contacter le serveur."
+
+#: app/templates/edit_profile.html:4
+msgid "Edit profile"
+msgstr "Editer le profil"
+
+#: app/templates/edit_profile.html:10
+#, python-format
+msgid ""
+"Profile pictures come from %(gravatar_link)s. To modify your profile "
+"picture here, you'll need to create a gravatar account (if you don't "
+"already have one). Your picture is linked to your email address, so be "
+"sure to use the same one you used here."
+msgstr ""
+"Les images de profil proviennent de %(gravatar_link)s.Pour modifier votre"
+" photo de profil ici, vous devez créer un compte gravatar (si vous n'en "
+"avez pas déjà un). Votre photo est liée à votre adresse e-mail, alors "
+"assurez-vous d'utiliser le même que celui que vous avez utilisé ici."
+
+#: app/templates/index.html:5
+#, python-format
+msgid "Hello, %(username)s"
+msgstr "Bonjour, %(username)s"
+
+#: app/templates/index.html:33 app/templates/index.html:35
+#: app/templates/user.html:42 app/templates/user.html:44
+msgid "newer posts"
+msgstr "messages plus récents"
+
+#: app/templates/index.html:39 app/templates/index.html:41
+#: app/templates/user.html:48 app/templates/user.html:50
+msgid "older posts"
+msgstr "messages plus anciens"
+
+#: app/templates/search.html:4
+msgid "Search Results"
+msgstr "Résultats de la recherche"
+
+#: app/templates/search.html:12 app/templates/search.html:14
+msgid "previous"
+msgstr "précédent"
+
+#: app/templates/search.html:18 app/templates/search.html:20
+msgid "next"
+msgstr "prochain"
+
+#: app/templates/user.html:5
+msgid "Profile & posts"
+msgstr "Profil et messages"
+
+#: app/templates/user.html:8
+msgid "Followers"
+msgstr "Suiveurs"
+
+#: app/templates/user.html:9
+msgid "Following"
+msgstr "Suivant"
+
+#: app/templates/user.html:12
+msgid "Last visit"
+msgstr "Derniere visite"
+
+#: app/templates/user.html:26
+msgid "Edit"
+msgstr "Modifier"
+
+#: app/templates/user.html:28
+msgid "Unfollow"
+msgstr "Ne pas"
+
+#: app/templates/user.html:30
+msgid "Follow"
+msgstr "Suivre"
+
+#: app/templates/auth/login.html:27
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+#: app/templates/auth/login.html:28
+msgid "Register here"
+msgstr "Inscrivez-vous ici"
+
+#: app/templates/auth/login.html:29
+msgid "Forgot password:"
+msgstr "Mot de passe oublié:"
+
+#: app/templates/auth/login.html:30
+#: app/templates/auth/reset_password_request.html:4
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: app/templates/auth/reset_password.html:4
+msgid "Create a new password"
+msgstr "Crée un nouveau mot de passe"
+
+#: app/templates/email/reset_password.html:1
+#, python-format
+msgid "Hello %(username)s,"
+msgstr "Bonjour %(username)s,"
+
+#: app/templates/email/reset_password.html:4
+msgid "Follow this link to"
+msgstr "Suivez ce lien pour"
+
+#: app/templates/email/reset_password.html:6
+msgid "reset your password."
+msgstr "réinitialiser votre mot de passe."
+
+#: app/templates/email/reset_password.html:9
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar:"
+msgstr ""
+"Vous pouvez également coller le lien suivant dans la barre d'adresse de "
+"votre navigateur."
+
+#: app/templates/email/reset_password.html:11
+msgid "If you have not requested a password reset, ignore this message."
+msgstr ""
+"Si vous n'avez pas demandé la réinitialisation du mot de passe, ignorez "
+"ce message."
+
+#: app/templates/email/reset_password.html:12
+msgid "Thanks,"
+msgstr "Merci"
+
+#: app/templates/errors/404.html:11
+msgid "Whoops, it's a 404"
+msgstr "Oups, c'est un 404"
+
+#: app/templates/errors/404.html:12
+msgid "Page not found, now let's"
+msgstr "Page non trouvée."
+
+#: app/templates/errors/404.html:12 app/templates/errors/500.html:12
+msgid "move on."
+msgstr "Allons-nous en."
+
+#: app/templates/errors/500.html:11
+msgid "Shit, an internal server error."
+msgstr "Merde, une erreur interne du serveur."
+
+#: app/templates/errors/500.html:12
+msgid "Noted. Let's"
+msgstr "C'est noté."

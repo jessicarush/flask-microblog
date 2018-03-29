@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('Sign In') }}</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.user_or_email.label }}
+            <!-- Display error message if field is empty-->
+            {% for error in form.user_or_email.errors %}
+            <span class="error"> : {{ error }}</span>
+            {% endfor %}<br>
+            {{ form.user_or_email(class="single") }}<br>
+
+        </p>
+        <p>
+            {{ form.password.label }}
+            <!-- Display error message if field is empty-->
+            {% for error in form.password.errors %}
+            <span class="error"> : {{ error }}</span>
+            {% endfor %}<br>
+            {{ form.password(class="single") }}<br>
+        </p>
+        <p>{{ form.remember_me(class="check", checked="True") }} {{ form.remember_me.label }}</p>
+        <p class="button">{{ form.submit(class="button") }}</p>
+    </form>
+    <p class="register_reset_link"><strong>{{ _('New user') }}:</strong>
+        <a href="{{ url_for('auth.register') }}">{{ _('Register here') }}.</a><br>
+    <strong>{{ _('Forgot password:') }}</strong>
+        <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Reset password') }}.</a></p>
+
+{% endblock %}
+
+
+{# <!-- The form.hidden_tag() template argument generates a hidden field that
+includes a token that is used to protect the form against CSRF attacks. All you
+need to do to have the form protected is include this hidden field and have the
+SECRET_KEY variable defined in the Flask configuration. If you take care of
+these two things, Flask-WTF does the rest for you.
+
+The fields from the form object know how to render themselves as HTML. All we
+need to do is include {{ form.<field_name>.label }} where we want the label,
+and {{ form.<field_name>() }} where we want the field. For fields that require
+additional HTML attributes, those can be passed as arguments. The username and
+password fields in this template take the size as an argument. This will be
+added to the <input> HTML element as an attribute. This is how you can attach
+CSS classes or IDs to form fields.
+
+As a general rule, any fields that have validators attached will have error
+messages added under form.<field_name>.errors. This is going to be a list,
+because fields can have multiple validators attached and more than one may be
+providing error messages to display to the user. --> #}

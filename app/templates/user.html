@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile">
+    <h1>{{ _('Profile & posts') }}</h1>
+    <img src="{{ user.avatar(200) }}" class="avatar">
+    <p class="single_line_info"><strong>{{ _('Username') }}:</strong> {{ user.username }}</p>
+    <p class="single_line_info"><strong>{{ _('Followers') }}:</strong> {{ user.followers.count() }}</p>
+    <p class="single_line_info"><strong>{{ _('Following') }}:</strong> {{ user.following.count() }}</p>
+
+    {% if user.last_seen %}
+    <p class="single_line_info"><strong>{{ _('Last visit') }}:</strong>
+        {{ moment(user.last_seen).format('LL') }}</p>
+    {% endif %}
+
+    <p><strong>{{ _('About me') }}:</strong>
+    {% if user.about_me %}
+       {{ user.about_me }}
+    {% else %}
+       ...
+    {% endif %}
+     </p>
+
+    <div class="profile_link">
+    {% if user == current_user %}
+    <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a></p>
+    {% elif current_user.is_following(user) %}
+    <p><a href="{{ url_for('main.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
+    {% else %}
+    <p><a href="{{ url_for('main.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
+    {% endif %}
+    </div>
+
+    <hr class="thin">
+    {% for post in posts %}
+        <!-- sub-template -->
+        {% include '_post.html' %}
+    {% endfor %}
+
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">{{ _('newer posts') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('newer posts') }}</span>
+        {% endif %}
+        <span class="separator">&</span>
+        {% if next_url %}
+            <a href="{{ next_url }}">{{ _('older posts') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('older posts') }}</span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

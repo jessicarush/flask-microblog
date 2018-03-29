@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('Search Results') }}.</h1>
+
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">{{ _('previous') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('previous') }}</span>
+        {% endif %}
+        <span class="separator">&</span>
+        {% if next_url %}
+            <a href="{{ next_url }}">{{ _('next') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('next') }}</span>
+        {% endif %}
+    </div>
+
+{% endblock %}
