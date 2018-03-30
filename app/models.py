@@ -58,7 +58,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    about_me = db.Column(db.String(350))
+    about_me = db.Column(db.Text(380))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     # one to many relationship:
     posts = db.relationship('Post', backref='author', lazy='dynamic')
@@ -130,7 +130,7 @@ class Post(SearchableMixin, db.Model):
     '''Model for user posts table'''
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(150))
+    body = db.Column(db.Text(280))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     language = db.Column(db.String(5))
     # one to many relationship:

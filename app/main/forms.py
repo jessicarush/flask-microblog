@@ -22,7 +22,7 @@ class SearchForm(FlaskForm):
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
-    about_me = TextAreaField(_l('About me'), validators=[Length(min=0, max=350)])
+    about_me = TextAreaField(_l('About me'), validators=[Length(min=0, max=380)])
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, original_email, *args, **kwargs):
