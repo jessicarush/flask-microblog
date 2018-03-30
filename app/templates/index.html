@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- value substitution -->
-    <h1>{{ _('Hello, %(username)s', username=current_user.username.title()) }}.</h1>
 
     <!-- check to see if form was passed --->
     <!-- as this template is also used for "explore" which has no form -->
     {% if form %}
+    <!-- value substitution -->
+    <h1>{{ _('Hello, %(username)s', username=current_user.username.title()) }}.</h1>
+
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -20,6 +21,8 @@
         <p class="button">{{ form.submit(class="button") }}</p>
         <hr class="thin">
     </form>
+    {% else %}
+    <h1> Recent posts&hellip;</h1>
     {% endif %}
 
     <!-- loops -->

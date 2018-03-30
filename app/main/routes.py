@@ -79,6 +79,12 @@ def explore():
                            next_url=next_url, prev_url=prev_url)
 
 
+@bp.route('/about')
+@login_required
+def about():
+    return render_template('about.html', title='About')
+
+
 @bp.route('/user/<username>')
 @login_required
 def user(username):

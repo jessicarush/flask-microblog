@@ -7,7 +7,7 @@ from app.models import User
 
 
 class SearchForm(FlaskForm):
-    q = StringField(_l('Search'), validators=[DataRequired()])
+    q = StringField(_l('Search posts:'), validators=[DataRequired()])
     # For a form that has a text field, the browser will submit the form when
     # you press Enter with the focus on the field, so a button is not needed.
 

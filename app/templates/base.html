@@ -9,8 +9,6 @@
 
         <link href="{{ url_for('static', filename='img/favicon.ico' )}}" rel="shortcut icon" type="image/x-icon">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css' )}}">
-        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='base.css' )}}"> -->
-        <!-- <link rel="stylesheet" href="../static/css/base.css"> -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Ovo" rel="stylesheet">
 
         {{ moment.include_jquery() }}
@@ -21,8 +19,9 @@
 
     <body>
     <div class="container">
-        <div>
+        <div class="header">
             <a href="{{ url_for('main.index') }}" class="title"> Microblog:</a>
+            <a href="{{ url_for('main.about') }}">{{ _('About') }}</a>
             <a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
@@ -30,6 +29,7 @@
             <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
             <a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
             {% endif %}
+            <hr class="thick">
             <!-- search field -->
             {% if g.search_form %}
             <form method="get" class="search" action="{{ url_for('main.search') }}">
@@ -45,7 +45,6 @@
             be part of the url, so if someone want to bookmark or share the
             result page, they can (but you can only see the oage if you're
             logged in of course) -->
-            <hr class="thick">
         </div>
 
 
@@ -66,7 +65,7 @@
         </div>
         <footer>
             <hr class="thick">
-            <a href="http://cyan.red" class="footer">cyan.red</a>
+            <a href="http://cyan.red" class="author">Thanks for visting. For more projects visit cyanred.</a>
         </footer>
     </div>
 

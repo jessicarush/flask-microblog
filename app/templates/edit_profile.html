@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ _('Edit profile') }}</h1>
+    <h1>{{ _('Edit profile') }}.</h1>
 
     {% set gravatar_link %}
-        <a href="https://en.gravatar.com/">gravatar</a>
+        <a href="https://en.gravatar.com/">gravatar</a>.
     {% endset %}
 
-    <p>{{ _("Profile pictures come from %(gravatar_link)s. To modify your profile picture here, you'll need to create a gravatar account (if you don't already have one). Your picture is linked to your email address, so be sure to use the same one you used here.", gravatar_link=gravatar_link) }}</p>
+    <p>{{ _("Profile pictures come from %(gravatar_link)s To modify your profile picture here, you'll need to create a gravatar account (if you don't already have one). Your picture is linked to your email address, so be sure to use the same one you used here.", gravatar_link=gravatar_link) }}</p>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
