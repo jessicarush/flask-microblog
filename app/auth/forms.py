@@ -18,7 +18,7 @@ class ResetPasswordRequestForm(FlaskForm):
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField(_l('Password'), validators=[DataRequired()])
+    password = PasswordField(_l('New Password'), validators=[DataRequired()])
     password2 = PasswordField(_l('Repeat Password'), validators=[DataRequired(),
         EqualTo('password')])
     submit = SubmitField(_l('save this password'))

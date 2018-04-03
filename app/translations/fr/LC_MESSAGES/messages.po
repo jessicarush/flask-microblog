@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-26 11:06-0700\n"
+"POT-Creation-Date: 2018-04-02 19:16-0700\n"
 "PO-Revision-Date: 2018-03-01 13:45-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -38,7 +38,7 @@ msgstr "Microblog: Réinitialiser le mot de passe"
 msgid "Username or email"
 msgstr "Nom d'utilisateur ou email"
 
-#: app/auth/forms.py:10 app/auth/forms.py:21 app/auth/forms.py:30
+#: app/auth/forms.py:10 app/auth/forms.py:30
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -57,6 +57,10 @@ msgstr "Email"
 #: app/auth/forms.py:17
 msgid "request password reset"
 msgstr "demande de réinitialisation"
+
+#: app/auth/forms.py:21
+msgid "New Password"
+msgstr "Nouveau mot de passe"
 
 #: app/auth/forms.py:22 app/auth/forms.py:31
 msgid "Repeat Password"
@@ -103,8 +107,8 @@ msgid "Your password has been reset."
 msgstr "Votre mot de passe a été réinitialisé."
 
 #: app/main/forms.py:10
-msgid "Search"
-msgstr "Chercher"
+msgid "Search posts:"
+msgstr "Rechercher des articles:"
 
 #: app/main/forms.py:25 app/templates/user.html:16
 msgid "About me"
@@ -126,58 +130,66 @@ msgstr "Publier"
 msgid "Posted!"
 msgstr "Publié"
 
-#: app/main/routes.py:106
+#: app/main/routes.py:112
 msgid "Your changes have been saved."
 msgstr "Vos changements ont été enregistrés."
 
-#: app/main/routes.py:120 app/main/routes.py:136
+#: app/main/routes.py:126 app/main/routes.py:142
 #, python-format
 msgid "User %(username)s not found."
 msgstr "Utilisateur %(username)s non trouvé"
 
-#: app/main/routes.py:123
+#: app/main/routes.py:129
 msgid "You can't follow yourself."
 msgstr "Tu ne peux pas te suivre."
 
-#: app/main/routes.py:127
+#: app/main/routes.py:133
 #, python-format
 msgid "You are following %(username)s."
 msgstr "Vous suivez %(username)s."
 
-#: app/main/routes.py:139
+#: app/main/routes.py:145
 msgid "You can't unfollow yourself."
 msgstr "Vous ne pouvez pas vous déconnecter."
 
-#: app/main/routes.py:143
+#: app/main/routes.py:149
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "Tu ne suis pas %(username)s."
 
-#: app/main/routes.py:159
+#: app/main/routes.py:165
 msgid "search"
 msgstr "chercher"
 
-#: app/templates/_post.html:28
+#: app/templates/_post.html:27
 msgid "Translate"
 msgstr "Traduire"
 
-#: app/templates/base.html:24
+#: app/templates/about.html:4
+msgid "What is this?"
+msgstr "Qu'est-ce que c'est?"
+
+#: app/templates/base.html:27
+msgid "About"
+msgstr "Sur"
+
+#: app/templates/base.html:28
 msgid "Explore"
 msgstr "Explorer"
 
-#: app/templates/base.html:26
+#: app/templates/base.html:30
 msgid "Login"
 msgstr "Se connecter"
 
-#: app/templates/base.html:28
+#: app/templates/base.html:32
 msgid "Profile"
 msgstr "Profil"
 
-#: app/templates/base.html:29
+#: app/templates/base.html:33
 msgid "Logout"
 msgstr "se déconnecter"
 
-#: app/templates/base.html:82
+#: app/templates/base.html:85
 msgid "Error: Could not contact server."
 msgstr "Erreur: Impossible de contacter le serveur."
 
@@ -188,27 +200,31 @@ msgstr "Editer le profil"
 #: app/templates/edit_profile.html:10
 #, python-format
 msgid ""
-"Profile pictures come from %(gravatar_link)s. To modify your profile "
+"Profile pictures come from %(gravatar_link)s To modify your profile "
 "picture here, you'll need to create a gravatar account (if you don't "
 "already have one). Your picture is linked to your email address, so be "
 "sure to use the same one you used here."
 msgstr ""
-"Les images de profil proviennent de %(gravatar_link)s.Pour modifier votre"
-" photo de profil ici, vous devez créer un compte gravatar (si vous n'en "
-"avez pas déjà un). Votre photo est liée à votre adresse e-mail, alors "
-"assurez-vous d'utiliser le même que celui que vous avez utilisé ici."
+"Les images de profil proviennent de "
+"%(gravatar_link)s.Pour modifier votre photo de"
+" profil ici, vous devez créer un "
+"compte gravatar (si vous n'en avez "
+"pas déjà un). Votre photo est liée"
+" à votre adresse e-mail, alors "
+"assurez-vous d'utiliser le même que "
+"celui que vous avez utilisé ici."
 
-#: app/templates/index.html:5
+#: app/templates/index.html:9
 #, python-format
 msgid "Hello, %(username)s"
 msgstr "Bonjour, %(username)s"
 
-#: app/templates/index.html:33 app/templates/index.html:35
+#: app/templates/index.html:36 app/templates/index.html:38
 #: app/templates/user.html:42 app/templates/user.html:44
 msgid "newer posts"
 msgstr "messages plus récents"
 
-#: app/templates/index.html:39 app/templates/index.html:41
+#: app/templates/index.html:42 app/templates/index.html:44
 #: app/templates/user.html:48 app/templates/user.html:50
 msgid "older posts"
 msgstr "messages plus anciens"
@@ -271,8 +287,8 @@ msgid "Reset password"
 msgstr "Réinitialiser le mot de passe"
 
 #: app/templates/auth/reset_password.html:4
-msgid "Create a new password"
-msgstr "Crée un nouveau mot de passe"
+msgid "Set password"
+msgstr "Définir le mot"
 
 #: app/templates/email/reset_password.html:1
 #, python-format
