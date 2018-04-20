@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ _('Sign In') }}</h1>
+    <h1 class="login">{{ _('Sign In') }} <a href="{{ url_for('auth.register') }}">| {{ _('Register') }}</a></h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -21,13 +21,17 @@
             {% endfor %}<br>
             {{ form.password(class="single") }}<br>
         </p>
+
+        <p class="register_reset_link">
+        <strong>{{ _('Forgot password:') }}</strong>
+            <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Reset password') }}.</a>
+        </p>
+
         <p>{{ form.remember_me(class="check", checked="True") }} {{ form.remember_me.label }}</p>
+
         <p class="button">{{ form.submit(class="button") }}</p>
     </form>
-    <p class="register_reset_link"><strong>{{ _('New user') }}:</strong>
-        <a href="{{ url_for('auth.register') }}">{{ _('Register here') }}.</a><br>
-    <strong>{{ _('Forgot password:') }}</strong>
-        <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Reset password') }}.</a></p>
+
 
 {% endblock %}
 
