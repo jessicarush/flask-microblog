@@ -32,6 +32,22 @@
     </div>
 
     <hr class="thin">
+    {% if user == current_user %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p class="post">
+            {{ form.post.label }}<br>
+            <!-- Display error message if field empty or exceedes max -->
+            {% for error in form.post.errors %}
+            <span class="error">{{ error }}</span><br>
+            {% endfor %}
+            {{ form.post(class="multiple") }}
+        </p>
+        <p class="button">{{ form.submit(class="button") }}</p>
+    </form>
+    {% endif %}
+
+
     {% for post in posts %}
         <!-- sub-template -->
         {% include '_post.html' %}

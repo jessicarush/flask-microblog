@@ -88,6 +88,20 @@ def about():
 @bp.route('/user/<username>')
 @login_required
 def user(username):
+    form = PostForm()
+    if form.validate_on_submit():
+        language = guess_language(form.post.data)
+        if language == 'UNKNOWN' or len(language) > 5:
+            language = ''
+        # Each time a post is submitted, we run the text through the
+        # guess_language function to try to determine the language. If it
+        # comes back as unknown or an unexpectedly long result, we play it
+        # safe and save an empty string to the database.
+        post = Post(body=form.post.data, author=current_user, language=language)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Posted!'))
+        return redirect(url_for('main.user', username=username))
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
@@ -96,7 +110,7 @@ def user(username):
         if posts.has_next else None
     prev_url = url_for('main.user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('user.html', user=user, posts=posts.items,
+    return render_template('user.html', user=user, form=form, posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
 
 
