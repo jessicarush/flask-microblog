@@ -85,7 +85,7 @@ def about():
     return render_template('about.html', title='About')
 
 
-@bp.route('/user/<username>')
+@bp.route('/user/<username>', methods=['GET', 'POST'])
 @login_required
 def user(username):
     form = PostForm()
