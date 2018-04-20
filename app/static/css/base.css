@@ -263,12 +263,12 @@ input.single {
 	border:1px solid #D0DAD7;
 }
 textarea.multiple {
-	height: 11em;
+	height: 10em;
 	width: 100%;
 	font-size: 18px;
 	color: #a5adb8;
 	margin: 2px 0px;
-	padding: 5px 15px;
+	padding: 12px 15px;
 	border:1px solid #D0DAD7;
 }
 input.button {
