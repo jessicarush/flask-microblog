@@ -1,11 +1,12 @@
 @charset "UTF-8";
 
 /* Layout */
-
+body {
+    -webkit-text-size-adjust: 100%;
+}
 div.container {
 	margin: 20px auto;
-	min-width: 360px;
-	max-width: 420px;
+	width: 420px;
 }
 div.content {
 	padding-bottom: 10px;
@@ -75,7 +76,7 @@ a:link, a:visited {
 a:hover, a:active {
 	color: #10ae86;
 }
-h1.login a:link, h1.login a:visited {
+a.login:link, a.login:visited {
 	color: rgba(180, 180, 180, 0.4)
 }
 .header a:link, a:visited {

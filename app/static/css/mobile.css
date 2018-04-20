@@ -1,0 +1,9 @@
+@import url('base.css');
+@charset "UTF-8";
+
+
+/* Layout */
+
+div.container {
+	width: 360px;
+}
