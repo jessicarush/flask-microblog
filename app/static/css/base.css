@@ -42,10 +42,10 @@ body {
 }
 h1 {
 	font-family: 'Ovo', serif;
-	font-weight: 400;
+	font-weight: normal;
 	font-size: 38px;
 	line-height: 1em;
-	letter-spacing: -0.02em;
+	/* letter-spacing: -0.02em; */
 	color: #3d4d62;
 	margin: 20px 50px 20px 0px;
 	/* text-shadow: 1px 1px 0px rgba(224,224,224,1); */
@@ -79,7 +79,7 @@ a:hover, a:active {
 }
 a.login:link, a.login:visited, a.login:hover, a.login:active {
 	color: rgba(180, 180, 180, 0.5);
-	font-weight: 400;
+	font-weight: normal;
 }
 .header a:link, a:visited {
 	padding: 0px 5px 0px 0px;
