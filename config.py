@@ -10,7 +10,7 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    POSTS_PER_PAGE = 10
+    POSTS_PER_PAGE = 25
     LANGUAGES = ['en', 'es', 'fr']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
@@ -72,7 +72,7 @@ class Config(object):
 # database:
 
 # (venv) $ export DATABASE_URL=postgresql://username:password@host/database_name
-# (venv) $ export DATABASE_URL=postgresql://postgres:cinnamon-sticks@localhost/exercise_app
+# (venv) $ export DATABASE_URL=postgresql://postgres:password@localhost/exercise_app
 
 # Microsoft azure translation api key:
 
