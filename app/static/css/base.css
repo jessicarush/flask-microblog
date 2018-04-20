@@ -78,7 +78,8 @@ a:hover, a:active {
 	color: #10ae86;
 }
 a.login:link, a.login:visited, a.login:hover, a.login:active {
-	color: rgba(180, 180, 180, 0.4);
+	color: rgba(180, 180, 180, 0.5);
+	font-weight: 400;
 }
 .header a:link, a:visited {
 	padding: 0px 5px 0px 0px;
