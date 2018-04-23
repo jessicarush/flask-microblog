@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
 /* Layout */
-body {
-    -webkit-text-size-adjust: 100%;
-}
 div.container {
 	margin: 20px auto;
 	width: 420px;
