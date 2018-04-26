@@ -1,9 +1,12 @@
 <!-- This is a sub-template -->
 <div class="post">
-    <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar_mini"><img src="{{ post.author.avatar(200) }}" class="avatar_mini"></a>
+    <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar_mini pop">
+        <img src="{{ post.author.avatar(200) }}" class="avatar_mini">
+    </a>
     <p>
-        <a href="{{ url_for('main.user', username=post.author.username) }}">
-        {{ post.author.username.title() }}:</a>
+        <a href="{{ url_for('main.user', username=post.author.username) }}" class="pop">
+            {{ post.author.username.title() }}
+        </a>:
 
         <!-- In order to identify posts that will be passed via JavaScript to
         the route that handles the translation API, we need to wrap the content
@@ -30,8 +33,46 @@
         {% endif %}
 
         <p class="post_dates">{{ moment(post.timestamp).fromNow() }}</p>
-
-
     </p>
     <hr class="clear">
+
+    <div id="pop{{ post.id }}" class="pop" style="display:none;">
+        <img src="{{ post.author.avatar(200) }}" class="avatar_med">
+        <h2 class="pop">
+            {{ post.author.username.title() }}
+            <div class="profile_link">
+                {% if post.author == current_user %}
+                <a class="profile_link" href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a>
+                {% elif current_user.is_following(post.author) %}
+                <a class="profile_link" href="{{ url_for('main.unfollow', username=post.author.username) }}">{{ _('Unfollow') }}</a>
+                {% else %}
+                <a class="profile_link" href="{{ url_for('main.follow', username=post.author.username) }}">{{ _('Follow') }}</a>
+                {% endif %}
+            </div>
+        </h2>
+        <p><strong>{{ _('Followers') }}:</strong> {{ post.author.followers.count() }}</p>
+        <p><strong>{{ _('Following') }}:</strong> {{ post.author.following.count() }}</p>
+
+        <hr class="thin">
+
+        <p><strong>{{ _('About me') }}:</strong>
+        {% if post.author.about_me %}
+           {{ post.author.about_me }}
+        {% else %}
+           ...
+        {% endif %}
+         </p>
+    </div>
+
 </div>
+
+<script>
+// https://github.com/sandywalker/webui-popover
+    $('a.pop').webuiPopover({
+        trigger:'hover',
+        placement:'vertical',
+        cache:false,
+        width:320,
+        url:'#pop{{ post.id }}'
+    });
+</script>

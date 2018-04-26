@@ -6,10 +6,8 @@ div.container {
 	width: 420px;
 }
 div.content {
-	padding-bottom: 10px;
 }
 div.profile {
-	position: relative;
 }
 div.pagination{
 	text-align: center;
@@ -17,7 +15,7 @@ div.pagination{
 	padding-top: 8px;
 }
 div.post {
-	padding: 13px 0px 18px 0px;
+	padding: 13px 0 18px 0;
 	border-bottom: solid 1px rgb(230, 230, 230);
 }
 footer {
@@ -44,20 +42,41 @@ h1 {
 	line-height: 1em;
 	/* letter-spacing: -0.02em; */
 	color: #3d4d62;
-	margin: 20px 50px 20px 0px;
-	/* text-shadow: 1px 1px 0px rgba(224,224,224,1); */
+	margin: 20px 50px 20px 0;
+	/* text-shadow: 1px 1px0 rgba(224,224,224,1); */
+}
+h2.profile {
+	font-family: 'Muli', sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 1.6em;
+	margin: 0 0 10px 0;
+	padding: 8px 85px 0 0;
+	position: relative;
+}
+h2.pop {
+	font-family: 'Muli', sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 1.6em;
+	margin: 0;
+	padding-right: 85px;
+	position: relative;
 }
 p {
-	margin: 0px 0px 15px 0px;
+	margin:0 0 20px 0;
 }
 p.single_line_info {
-	margin: 0px 0px 12px 0px;
+	margin: 0 0 10px 0;
 }
 p.register_reset_link {
-	margin: 0px;
+	margin: 0;
+}
+.pop p {
+	margin: 0;
 }
 .post p {
-	margin: 0px 0px 0px 58px;
+	margin: 0 0 0 58px;
 }
 p.post {
 	margin-top: 20px;
@@ -79,7 +98,7 @@ a.login:link, a.login:visited, a.login:hover, a.login:active {
 	font-weight: normal;
 }
 .header a:link, a:visited {
-	padding: 0px 5px 0px 0px;
+	padding: 0 5px 0 0;
 }
 a.title:link, a.title:visited {
 	color: #3d4d62;
@@ -92,19 +111,30 @@ a.title:link, a.title:visited {
 .post a:hover, .post a:active {
 	text-decoration: underline;
 }
-.profile_link a:link, .profile_link a:visited {
+a.profile_link:link, a.profile_link:visited {
 	color: #FFF;
 	background: #1BD3A5;
 	font-weight: 400;
-	padding: 3px 7px;
+	padding: 1px 7px;
+	border-radius: 2px;
 }
-.profile_link a:hover, .profile_link a:active {
+a.profile_link:hover, a.profile_link:active {
 	background: #10ae86;
+}
+.profile_link {
+	width: auto;
+	position: absolute;
+	top: 3;
+	right: 0;
+}
+.profile_link {
+	width: auto;
+	display: inline;
 }
 .inactive_link {
 	color: rgb(220, 220, 220);
 	font-weight: 600;
-	padding: 0px 2px;
+	padding: 0 2px;
 }
 a.author:link, a.author:visited {
 	color: #3d4d62;
@@ -122,13 +152,6 @@ span.translation {
 }
 .register_reset_link {
 	margin: 0;
-}
-.profile_link {
-	text-align: right;
-	width: 100px;
-	position: absolute;
-	top: 7;
-	right: 0;
 }
 .separator {
 	color: rgb(220, 220, 220);
@@ -153,15 +176,16 @@ ul.error, ul.error li {
 }
 hr.thick {
 	border: 0;
-	margin: 5px 0px 0px 0px;
+	margin: 5px 0 0 0;
 	background: #3d4d62;
 	height: 3px;
+	clear: both;
 }
 hr.thin {
 	border: 0;
-	background: #3d4d62;
-	height: 3px;
-	margin: 25px 0px 7px 0px;
+	background: rgb(230, 230, 230);
+	height: 1px;
+	margin: 12px 0 8px 0;
 	clear: both;
 }
 hr.clear {
@@ -172,15 +196,23 @@ hr.clear {
 }
 img.avatar {
 	float: left;
-	width: 115px;
-	margin: 4px 26px 10px 0px;
-	padding: 5px;
+	width: 125px;
+	margin: 5px 22px 10px 0;
+	padding: 4px;
 	background: #FFF;
 	border: solid 1px rgba(145, 145, 145, 0.2);
 }
+img.avatar_med {
+	float: left;
+	width: 55px;
+	margin: 4px 15px 8px 0;
+	padding: 4px;
+	background: #FFF;
+	border: solid 1px rgba(145, 145, 145, 0.3);
+}
 img.avatar_mini {
-	width: 35px;
-	margin: 5px 0px 10px 0px;
+	width: 40px;
+	margin: 3px 0 10px 0;
 	padding: 3px;
 	background: #FFF;
 	border: solid 1px rgba(145, 145, 145, 0.2);
@@ -205,7 +237,7 @@ img.loading {
 }
 .error_page {
 	margin: 50px auto;
-	padding: 0px 25px 25px 25px;
+	padding: 0 25px 25px 25px;
 	width: 380px;
 	background: url(../img/lightpaperfibers.png);
 	border: solid 5px #3d4d62;
@@ -246,7 +278,7 @@ input.search {
 	width: 100%;
 	font-size: 15px;
 	color: #a5adb8;
-	padding: 10px 0px;
+	padding: 10px 0;
 	border: none;
 	border-bottom: 1px solid rgb(230, 230, 230);
 }
@@ -255,22 +287,22 @@ input.single {
 	width: 100%;
 	font-size: 18px;
 	color: #a5adb8;
-	margin: 2px 0px;
-	padding: 0px 15px;
-	border:1px solid #D0DAD7;
+	margin: 2px 0;
+	padding: 0 15px;
+	border: 1px solid #D0DAD7;
 }
 textarea.multiple {
 	height: 10em;
 	width: 100%;
 	font-size: 18px;
 	color: #a5adb8;
-	margin: 2px 0px;
+	margin: 2px 0;
 	padding: 12px 15px;
-	border:1px solid #D0DAD7;
+	border: 1px solid #D0DAD7;
 }
 input.button {
 	padding: 7px 12px;
-	margin: 7px 0px 0px 0px;
+	margin: 7px 0 15px 0;
 	font-weight: 700;
 	font-size: 16px;
 	color: #1BD3A5;
