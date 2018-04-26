@@ -4,12 +4,23 @@
 <div class="profile">
     <h1>{{ _('Profile & posts') }}.</h1>
     <img src="{{ user.avatar(200) }}" class="avatar">
-    <p class="single_line_info"><strong>{{ _('Username') }}:</strong> {{ user.username }}</p>
+    <h2 class="profile">
+        {{ user.username.title() }}
+        <div class="profile_link">
+            {% if user == current_user %}
+            <a class="profile_link" href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a>
+            {% elif current_user.is_following(user) %}
+            <a class="profile_link" href="{{ url_for('main.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a>
+            {% else %}
+            <a class="profile_link" href="{{ url_for('main.follow', username=user.username) }}">{{ _('Follow') }}</a>
+            {% endif %}
+        </div>
+    </h2>
     <p class="single_line_info"><strong>{{ _('Followers') }}:</strong> {{ user.followers.count() }}</p>
     <p class="single_line_info"><strong>{{ _('Following') }}:</strong> {{ user.following.count() }}</p>
 
     {% if user.last_seen %}
-    <p class="single_line_info"><strong>{{ _('Last visit') }}:</strong>
+    <p><strong>{{ _('Last visit') }}:</strong>
         {{ moment(user.last_seen).format('LL') }}</p>
     {% endif %}
 
@@ -21,17 +32,7 @@
     {% endif %}
      </p>
 
-    <div class="profile_link">
-    {% if user == current_user %}
-    <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a></p>
-    {% elif current_user.is_following(user) %}
-    <p><a href="{{ url_for('main.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
-    {% else %}
-    <p><a href="{{ url_for('main.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
-    {% endif %}
-    </div>
-
-    <hr class="thin">
+    <hr class="thick">
     {% if user == current_user %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
