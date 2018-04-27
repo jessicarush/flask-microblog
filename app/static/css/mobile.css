@@ -2,8 +2,10 @@
 @charset "UTF-8";
 
 
-/* Layout */
-
 div.container {
 	width: 360px;
+}
+a.title:link, a.title:visited {
+	display: block;
+	float: none;
 }
