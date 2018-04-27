@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ _('Messages') }}</h1>
+
+    {% for post in messages %}
+        {% include '_post.html' %}
+    {% endfor %}
+
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">{{ _('newer messages') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('newer messages') }}</span>
+        {% endif %}
+        <span class="separator">&</span>
+        {% if next_url %}
+            <a href="{{ next_url }}">{{ _('older messages') }}</a>
+        {% else %}
+            <span class="inactive_link">{{ _('older messages') }}</span>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 /* Layout */
 div.container {
 	margin: 20px auto;
-	width: 420px;
+	width: 435px;
 }
 div.content {
 }
@@ -17,6 +17,14 @@ div.pagination{
 div.post {
 	padding: 13px 0 18px 0;
 	border-bottom: solid 1px rgb(230, 230, 230);
+}
+span.main_nav_center {
+	display: inline-block;
+	float: left;
+}
+span.main_nav_right {
+	display: inline-block;
+	float: right;
 }
 footer {
 	text-align: right;
@@ -42,7 +50,7 @@ h1 {
 	line-height: 1em;
 	/* letter-spacing: -0.02em; */
 	color: #3d4d62;
-	margin: 20px 50px 20px 0;
+	margin: 20px 0 20px 0;
 	/* text-shadow: 1px 1px0 rgba(224,224,224,1); */
 }
 h2.profile {
@@ -98,11 +106,14 @@ a.login:link, a.login:visited, a.login:hover, a.login:active {
 	font-weight: normal;
 }
 .header a:link, a:visited {
-	padding: 0 5px 0 0;
+	padding: 0 0 0 6px;
 }
 a.title:link, a.title:visited {
 	color: #3d4d62;
 	font-weight: 700;
+	display: inline-block;
+	float: left;
+	padding: 0;
 }
 .post a:link, .post a:visited, a.footer:link, a.footer:visited {
 	color: #3d4d62;
@@ -115,21 +126,27 @@ a.profile_link:link, a.profile_link:visited {
 	color: #FFF;
 	background: #1BD3A5;
 	font-weight: 400;
-	padding: 1px 7px;
+	padding: 1px 5px;
 	border-radius: 2px;
+	margin-left: 5px;
 }
 a.profile_link:hover, a.profile_link:active {
 	background: #10ae86;
 }
-.profile_link {
-	width: auto;
+a.mail:link, a.mail:visited {
+	font-size: 20px;
+	position: relative;
+	top: 0.1em;
+	color: rgb(200, 200, 200);
+}
+a.mail:hover, a.mail:active {
+	color: #1BD3A5;
+}
+div.profile_link {
+	text-align: right;
 	position: absolute;
 	top: 3;
 	right: 0;
-}
-.profile_link {
-	width: auto;
-	display: inline;
 }
 .inactive_link {
 	color: rgb(220, 220, 220);
@@ -146,6 +163,17 @@ span.translation {
 	font-style: italic;
 	color: rgba(61, 77, 98, 0.7);
 }
+.badge {
+	font-size: 0.65em;
+	padding: 1px 5px;
+	color: #fff;
+	/* background: #1BD3A5; */
+	background: #FF1010;
+	/* background: rgb(200, 200, 200); */
+	border-radius: 15px;
+	position: relative;
+	top: -0.1em;
+}
 .error {
 	color: #FF1010;
 	font-weight: 600;
@@ -156,7 +184,7 @@ span.translation {
 .separator {
 	color: rgb(220, 220, 220);
 	font-family: 'Ovo', serif;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	position: relative;
 	top: .1em;
 }

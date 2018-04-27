@@ -45,8 +45,15 @@ class EditProfileForm(FlaskForm):
 
 class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'), validators=[DataRequired(),
-        Length(min=1, max=280)])
+        Length(min=1, max=300)])
     submit = SubmitField(_l('Post'))
+
+
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[DataRequired(),
+        Length(min=0, max=300)])
+    submit = SubmitField(_l('Send'))
+
 
 
 # In the EditProfileForm, the three methods are in place to prevent the bug
