@@ -39,8 +39,7 @@ def translate_text():
     # that is going to be sent back to the client.
 
 
-@bp.route('/', methods=['GET', 'POST'])
-@bp.route('/index', methods=['GET', 'POST'])
+@bp.route('/home', methods=['GET', 'POST'])
 @login_required
 def index():
     '''View function for the main index page.'''
