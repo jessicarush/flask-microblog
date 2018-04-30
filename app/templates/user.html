@@ -7,9 +7,7 @@
     <h2 class="profile">
         {{ user.username.title() }}
         <div class="profile_link">
-            {% if user != current_user %}
-                <a class="mail_large" title="send private message" href="{{ url_for('main.send_message', recipient=user.username) }}"><i class="fas fa-envelope"></i></a>
-            {% endif %}
+            <a class="mail_large" title="send private message" href="{{ url_for('main.send_message', recipient=user.username) }}"><i class="fas fa-envelope"></i></a>
             {% if user == current_user %}
                 <a class="profile_link" href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a>
             {% elif current_user.is_following(user) %}

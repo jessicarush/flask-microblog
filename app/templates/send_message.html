@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if recipient == current_user.username %}
+    <h1>{{ _('Send a message to yourself') }}</h1>
+    {% else %}
     <h1>{{ _('Send a message to %(recipient)s', recipient=recipient.title()) }}</h1>
-
+    {% endif %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>

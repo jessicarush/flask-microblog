@@ -32,23 +32,23 @@
             <span class="main_nav_center">
                 <a href="{{ url_for('main.about') }}">{{ _('About') }}</a>
                 <a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
-
-            {% if current_user.is_anonymous %}
-                <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
-            </span>
-            {% else %}
+                {% if current_user.is_authenticated %}
                 <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
                 <a href="{{ url_for('main.messages') }}">{{ _('Messages') }}
                     {% set new_messages = current_user.new_messages() %}
-                    <span id="message_count" class="badge" style="background: {% if new_messages %}#FF1010 {% else %}#DCDCDC {% endif %};">
+                    <span id="message_count" class="badge" style="background: {% if new_messages %}#FB3F40 {% else %}#D2D2D2 {% endif %};">
                         {{ new_messages }}
                     </span>
                 </a>
+                {% endif %}
             </span>
             <span class="main_nav_right">
+                {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
+                {% else %}
                     <a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
+                {% endif %}
             </span>
-            {% endif %}
 
             <hr class="thick">
             <!-- search field -->
@@ -105,7 +105,7 @@
         }
         function set_message_count(n) {
             $('#message_count').text(n);
-            $('#message_count').css('background', n ? '#FF1010' : '#DCDCDC');
+            $('#message_count').css('background', n ? '#FB3F40' : '#D2D2D2');
         }
         {% if current_user.is_authenticated %}
         $(function() {
