@@ -192,10 +192,15 @@ span.translation {
 	color: rgba(61, 77, 98, 0.7);
 }
 .badge {
-	font-size: 0.65em;
-	padding: 1px 5px;
+	font-size: 0.7em;
+	font-weight: 600;
+	line-height: 1em;
+	display: inline-block;
+	text-align: center;
+	padding: 2px 4px;
 	color: #fff;
-	border-radius: 15px;
+	background: #FF1010;
+	border-radius: 10px;
 	position: relative;
 	top: -0.1em;
 }
