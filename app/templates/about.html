@@ -29,4 +29,21 @@
 
     <p>Jessica</p>
 
+    <hr class="thin">
+
+    <h1>{{ _('Future features & fixes') }}</h1>
+
+    <p>These are some of the things I hope to integrate and improve over the next year. If you have any ideas, feel free to
+        <a title="send a message" href="{{ url_for('main.send_message', recipient='jessica') }}">send me a suggestion.</a>
+    </p>
+    <ul class="future">
+        <li>ability to add links to posts</li>
+        <li>ability to add images to posts</li>
+        <li>ability to search users</li>
+        <li>ability to delete posts</li>
+        <li>ability to delete account and <strong>all</strong> associated content</li>
+        <li>ability to change password from <em>edit profile</em> page</li>
+        <li>remove <em>hover</em> popups on mobile devices by tapping the background</li>
+        <li>Work on SPF Records and configure DKIM to avoid password reset emails ending up in junk mail!</li>
+
 {% endblock %}
