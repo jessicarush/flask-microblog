@@ -1,11 +1,11 @@
 <!-- This is a sub-template -->
 <div class="post">
-    <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar_mini pop">
+    <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar pop">
         <img src="{{ post.author.avatar(200) }}" class="avatar_mini">
     </a>
     <p>
         <a href="{{ url_for('main.user', username=post.author.username) }}" class="pop">
-            {{ post.author.username.title() }}
+                {{ post.author.username.title() }}
         </a>:
 
         <!-- In order to identify posts that will be passed via JavaScript to
@@ -32,21 +32,32 @@
         </span>
         {% endif %}
 
-        <p class="post_dates">{{ moment(post.timestamp).fromNow() }}</p>
+        <p class="post_dates">{{ moment(post.timestamp).fromNow() }}
+        {% if user != current_user %}
+            <a class="mail_tiny" title="send private message" href="{{ url_for('main.send_message', recipient=post.author.username) }}"><i class="fas fa-envelope"></i> send a message to {{ post.author.username.title() }}</a>
+        {% endif %}
+        </p>
     </p>
     <hr class="clear">
 
     <div id="pop{{ post.id }}" class="pop" style="display:none;">
-        <img src="{{ post.author.avatar(200) }}" class="avatar_med">
+        <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar">
+            <img src="{{ post.author.avatar(200) }}" class="avatar_med">
+        </a>
         <h2 class="pop">
-            {{ post.author.username.title() }}
+            <a href="{{ url_for('main.user', username=post.author.username) }}">
+                {{ post.author.username.title() }}
+            </a>
             <div class="profile_link">
+                {% if user != current_user %}
+                    <a class="mail_small" title="send private message" href="{{ url_for('main.send_message', recipient=post.author.username) }}"><i class="fas fa-envelope"></i></a>
+                {% endif %}
                 {% if post.author == current_user %}
-                <a class="profile_link" href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a>
+                    <a class="profile_link_small" href="{{ url_for('main.edit_profile') }}">{{ _('Edit') }}</a>
                 {% elif current_user.is_following(post.author) %}
-                <a class="profile_link" href="{{ url_for('main.unfollow', username=post.author.username) }}">{{ _('Unfollow') }}</a>
+                    <a class="profile_link_small" href="{{ url_for('main.unfollow', username=post.author.username) }}">{{ _('Unfollow') }}</a>
                 {% else %}
-                <a class="profile_link" href="{{ url_for('main.follow', username=post.author.username) }}">{{ _('Follow') }}</a>
+                    <a class="profile_link_small" href="{{ url_for('main.follow', username=post.author.username) }}">{{ _('Follow') }}</a>
                 {% endif %}
             </div>
         </h2>
@@ -74,6 +85,7 @@
         cache:false,
         width:320,
         arrow:true,
+        dismissible:true,
         url:'#pop{{ post.id }}'
     });
 </script>

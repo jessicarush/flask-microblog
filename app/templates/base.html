@@ -40,7 +40,9 @@
                 <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
                 <a href="{{ url_for('main.messages') }}">{{ _('Messages') }}
                     {% set new_messages = current_user.new_messages() %}
-                    <span id="message_count" class="badge">{{ new_messages }}</span>
+                    <span id="message_count" class="badge" style="background: {% if new_messages %}#FF1010 {% else %}#DCDCDC {% endif %};">
+                        {{ new_messages }}
+                    </span>
                 </a>
             </span>
             <span class="main_nav_right">
@@ -103,6 +105,7 @@
         }
         function set_message_count(n) {
             $('#message_count').text(n);
+            $('#message_count').css('background', n ? '#FF1010' : '#DCDCDC');
         }
         {% if current_user.is_authenticated %}
         $(function() {

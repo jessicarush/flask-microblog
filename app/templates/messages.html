@@ -4,6 +4,8 @@
 
     <h1>{{ _('Messages') }}</h1>
 
+    <p>To respond to a private message, use the link below the message. To send a new private message, look for the mail icon in each persons post and profile page.</p>
+
     {% for post in messages %}
         {% include '_post.html' %}
     {% endfor %}

@@ -114,32 +114,61 @@ a.title:link, a.title:visited {
 	display: inline-block;
 	float: left;
 }
-.post a:link, .post a:visited, a.footer:link, a.footer:visited {
+.post a:link, .post a:visited, .pop a:link, .pop a:visited {
 	color: #3d4d62;
 	font-weight: 700;
 }
-.post a:hover, .post a:active {
+.post a:hover, .post a:active, .pop a:hover, .pop a:active {
 	text-decoration: underline;
 }
 a.profile_link:link, a.profile_link:visited {
 	color: #FFF;
+	font-size: 14px;
 	background: #1BD3A5;
 	font-weight: 400;
-	padding: 1px 5px;
+	padding: 3px 5px;
 	border-radius: 2px;
-	margin-left: 5px;
+	margin-left: 3px;
+	text-decoration: none;
 }
-a.profile_link:hover, a.profile_link:active {
+a.profile_link_small:link, a.profile_link_small:visited {
+	color: #FFF;
+	font-size: 12px;
+	background: #1BD3A5;
+	font-weight: 400;
+	padding: 2px 4px;
+	border-radius: 2px;
+	margin-left: 3px;
+	text-decoration: none;
+}
+a.profile_link:hover, a.profile_link:active,
+a.profile_link_small:hover, a.profile_link_small:active {
 	background: #10ae86;
 }
-a.mail:link, a.mail:visited {
+a.mail_large:link, a.mail_large:visited {
 	font-size: 20px;
 	position: relative;
-	top: 0.1em;
-	color: rgb(200, 200, 200);
+	top: 0.15em;
 }
-a.mail:hover, a.mail:active {
+a.mail_small:link, a.mail_small:visited {
 	color: #1BD3A5;
+	font-size: 15px;
+	position: relative;
+	top: 0.05em;
+}
+a.mail_tiny:link, a.mail_tiny:visited {
+	font-size: 12px;
+	padding-left: 10px;
+	color: rgb(170, 170, 170);
+	font-weight: 600;
+}
+a.mail_large:hover, a.mail_large:active,
+a.mail_small:hover, a.mail_small:active {
+
+}
+a.mail_tiny:hover, a.mail_tiny:active {
+	color: #1BD3A5;
+	text-decoration: none;
 }
 div.profile_link {
 	text-align: right;
@@ -166,9 +195,6 @@ span.translation {
 	font-size: 0.65em;
 	padding: 1px 5px;
 	color: #fff;
-	/* background: #1BD3A5; */
-	background: #FF1010;
-	/* background: rgb(200, 200, 200); */
 	border-radius: 15px;
 	position: relative;
 	top: -0.1em;
@@ -189,9 +215,8 @@ span.translation {
 }
 .post_dates {
 	color: rgb(170, 170, 170);
-	font-size: 0.8em;
+	font-size: 12px;
 	font-weight: 400;
-	/* line-height: 1.6em; */
 }
 
 /* Design elements */
@@ -230,7 +255,6 @@ img.avatar {
 	border: solid 1px rgba(145, 145, 145, 0.2);
 }
 img.avatar_med {
-	float: left;
 	width: 55px;
 	margin: 4px 15px 8px 0;
 	padding: 4px;
@@ -244,7 +268,7 @@ img.avatar_mini {
 	background: #FFF;
 	border: solid 1px rgba(145, 145, 145, 0.2);
 }
-a.avatar_mini {
+a.avatar {
 	float: left;
 }
 img.loading {
