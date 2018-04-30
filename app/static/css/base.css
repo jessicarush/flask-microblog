@@ -11,8 +11,7 @@ div.profile {
 }
 div.pagination{
 	text-align: center;
-	margin-top: 5px;
-	padding-top: 8px;
+	margin: 10px 0;
 }
 div.post {
 	padding: 13px 0 18px 0;
@@ -21,10 +20,13 @@ div.post {
 span.main_nav_center {
 	display: inline-block;
 	float: left;
+	padding-bottom: 5px;
+	line-height: 1em;
 }
 span.main_nav_right {
 	display: inline-block;
 	float: right;
+	line-height: 1em;
 }
 footer {
 	text-align: right;
@@ -65,7 +67,7 @@ h2.profile {
 h2.pop {
 	font-family: 'Muli', sans-serif;
 	font-weight: 700;
-	font-size: 15px;
+	font-size: 13px;
 	line-height: 1.6em;
 	margin: 0;
 	padding-right: 85px;
@@ -81,6 +83,7 @@ p.register_reset_link {
 	margin: 0;
 }
 .pop p {
+	font-size: 13px;
 	margin: 0;
 }
 .post p {
@@ -113,6 +116,7 @@ a.title:link, a.title:visited {
 	font-weight: 700;
 	display: inline-block;
 	float: left;
+	line-height: 1em;
 }
 .post a:link, .post a:visited, .pop a:link, .pop a:visited {
 	color: #3d4d62;
@@ -123,7 +127,7 @@ a.title:link, a.title:visited {
 }
 a.profile_link:link, a.profile_link:visited {
 	color: #FFF;
-	font-size: 14px;
+	font-size: 13px;
 	background: #1BD3A5;
 	font-weight: 400;
 	padding: 3px 5px;
@@ -146,28 +150,27 @@ a.profile_link_small:hover, a.profile_link_small:active {
 	background: #10ae86;
 }
 a.mail_large:link, a.mail_large:visited {
-	font-size: 20px;
+	color: rgb(180, 180, 180);
+	font-size: 18px;
 	position: relative;
 	top: 0.15em;
 }
 a.mail_small:link, a.mail_small:visited {
-	color: #1BD3A5;
+	color: rgb(180, 180, 180);
 	font-size: 15px;
 	position: relative;
-	top: 0.05em;
+	top: 0.1em;
 }
 a.mail_tiny:link, a.mail_tiny:visited {
+	color: rgb(180, 180, 180);
 	font-size: 12px;
 	padding-left: 10px;
-	color: rgb(170, 170, 170);
 	font-weight: 600;
 }
 a.mail_large:hover, a.mail_large:active,
-a.mail_small:hover, a.mail_small:active {
-
-}
+a.mail_small:hover, a.mail_small:active,
 a.mail_tiny:hover, a.mail_tiny:active {
-	color: #1BD3A5;
+	color: #10ae86;
 	text-decoration: none;
 }
 div.profile_link {
@@ -205,7 +208,7 @@ span.translation {
 	top: -0.1em;
 }
 .error {
-	color: #FF1010;
+	color: #FB3F40;
 	font-weight: 600;
 }
 .register_reset_link {
@@ -219,7 +222,7 @@ span.translation {
 	top: .1em;
 }
 .post_dates {
-	color: rgb(170, 170, 170);
+	color: rgb(180, 180, 180);
 	font-size: 12px;
 	font-weight: 400;
 }
@@ -231,9 +234,15 @@ ul.error, ul.error li {
 	padding: 0;
 	margin: 0;
 }
+ul.future {
+	padding-bottom: 15px;
+}
+ul.future li {
+	padding-left: 5px;;
+}
 hr.thick {
 	border: 0;
-	margin: 5px 0 0 0;
+	margin: 0;
 	background: #3d4d62;
 	height: 3px;
 	clear: both;
