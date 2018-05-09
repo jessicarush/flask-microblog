@@ -19,14 +19,10 @@ div.post {
 }
 span.main_nav_center {
 	display: inline-block;
-	float: left;
-	padding-bottom: 5px;
-	line-height: 1em;
 }
 span.main_nav_right {
 	display: inline-block;
 	float: right;
-	line-height: 1em;
 }
 footer {
 	text-align: right;
@@ -103,6 +99,7 @@ a:link, a:visited {
 	font-weight: 600;
 	font-style: normal;
 	text-decoration: none;
+
 }
 a:hover, a:active {
 	color: #10ae86;
@@ -111,15 +108,14 @@ a.login:link, a.login:visited, a.login:hover, a.login:active {
 	color: rgba(180, 180, 180, 0.5);
 	font-weight: normal;
 }
-.header a:link, a:visited {
+a.title:link, a.title:visited,
+.main_nav_center a:link, .main_nav_center a:visited {
 	padding: 0 6px 0 0;
 }
 a.title:link, a.title:visited {
 	color: #3d4d62;
 	font-weight: 700;
 	display: inline-block;
-	float: left;
-	line-height: 1em;
 }
 .post a:link, .post a:visited, .pop a:link, .pop a:visited {
 	color: #3d4d62;
@@ -198,17 +194,17 @@ span.translation {
 	color: rgba(61, 77, 98, 0.7);
 }
 .badge {
-	font-size: 0.7em;
+	font-size: 0.6em;
 	font-weight: 600;
 	line-height: 1em;
 	display: inline-block;
 	text-align: center;
-	padding: 2px 4px;
+	padding: 3px 5px;
 	color: #fff;
 	background: #FB3F40;
 	border-radius: 10px;
 	position: relative;
-	top: -0.1em;
+	top: -0.2em;
 }
 .error, .progress {
 	color: #FB3F40;
@@ -245,7 +241,7 @@ ul.future li {
 }
 hr.thick {
 	border: 0;
-	margin: 0;
+	margin: 5px 0 0 0;
 	background: #3d4d62;
 	height: 3px;
 	clear: both;
