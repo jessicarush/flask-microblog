@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-30 14:40-0700\n"
+"POT-Creation-Date: 2018-05-09 11:01-0700\n"
 "PO-Revision-Date: 2018-03-01 13:45-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.3\n"
 
-#: app/__init__.py:19
+#: app/__init__.py:21
 msgid "Please log in to access that page."
 msgstr "Por favor ingrese para acceder a esta página."
 
@@ -179,6 +179,14 @@ msgstr "Tu mensaje ha sido enviado."
 msgid "Send Message"
 msgstr "enviar mensaje"
 
+#: app/main/routes.py:234
+msgid "An export is currently in progress"
+msgstr "Una exportación está actualmente en progreso"
+
+#: app/main/routes.py:236
+msgid "Exporting posts..."
+msgstr "Exportación de publicaciones ..."
+
 #: app/templates/_post.html:30
 msgid "Translate"
 msgstr "Traducir"
@@ -271,7 +279,7 @@ msgstr "Ingresar"
 msgid "Logout"
 msgstr "Salir"
 
-#: app/templates/base.html:103
+#: app/templates/base.html:119
 msgid "Error: Could not contact server."
 msgstr "Error: no se pudo contactar al servidor."
 
@@ -302,12 +310,12 @@ msgid "Recent posts"
 msgstr "Mensajes recientes"
 
 #: app/templates/index.html:36 app/templates/index.html:38
-#: app/templates/user.html:60 app/templates/user.html:62
+#: app/templates/user.html:71 app/templates/user.html:73
 msgid "newer posts"
 msgstr "Artículos siguientes"
 
 #: app/templates/index.html:42 app/templates/index.html:44
-#: app/templates/user.html:66 app/templates/user.html:68
+#: app/templates/user.html:77 app/templates/user.html:79
 msgid "older posts"
 msgstr "Artículos previos"
 
@@ -347,6 +355,10 @@ msgstr "Perfil y publicaciones"
 #: app/templates/user.html:24
 msgid "Last visit"
 msgstr "Última visita"
+
+#: app/templates/user.html:40 app/templates/user.html:44
+msgid "Export your posts (json)"
+msgstr "Exportar tus publicaciones (json)"
 
 #: app/templates/auth/login.html:28
 msgid "Reset your password"

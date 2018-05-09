@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-30 14:40-0700\n"
+"POT-Creation-Date: 2018-05-09 11:01-0700\n"
 "PO-Revision-Date: 2018-03-01 13:45-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.3\n"
 
-#: app/__init__.py:19
+#: app/__init__.py:21
 msgid "Please log in to access that page."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
@@ -179,6 +179,14 @@ msgstr "Votre message a été envoyé."
 msgid "Send Message"
 msgstr "envoyer le message"
 
+#: app/main/routes.py:234
+msgid "An export is currently in progress"
+msgstr "Une exportation est actuellement en cours"
+
+#: app/main/routes.py:236
+msgid "Exporting posts..."
+msgstr "Exporter des messages..."
+
 #: app/templates/_post.html:30
 msgid "Translate"
 msgstr "Traduire"
@@ -272,7 +280,7 @@ msgstr "Se connecter"
 msgid "Logout"
 msgstr "se déconnecter"
 
-#: app/templates/base.html:103
+#: app/templates/base.html:119
 msgid "Error: Could not contact server."
 msgstr "Erreur: Impossible de contacter le serveur."
 
@@ -303,12 +311,12 @@ msgid "Recent posts"
 msgstr "Messages récents"
 
 #: app/templates/index.html:36 app/templates/index.html:38
-#: app/templates/user.html:60 app/templates/user.html:62
+#: app/templates/user.html:71 app/templates/user.html:73
 msgid "newer posts"
 msgstr "messages plus récents"
 
 #: app/templates/index.html:42 app/templates/index.html:44
-#: app/templates/user.html:66 app/templates/user.html:68
+#: app/templates/user.html:77 app/templates/user.html:79
 msgid "older posts"
 msgstr "messages plus anciens"
 
@@ -348,6 +356,10 @@ msgstr "Profil et messages"
 #: app/templates/user.html:24
 msgid "Last visit"
 msgstr "Derniere visite"
+
+#: app/templates/user.html:40 app/templates/user.html:44
+msgid "Export your posts (json)"
+msgstr "Exporter vos messages (json)"
 
 #: app/templates/auth/login.html:28
 msgid "Reset your password"

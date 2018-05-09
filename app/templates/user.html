@@ -31,7 +31,18 @@
     {% else %}
        ...
     {% endif %}
-     </p>
+    </p>
+
+
+    {% if not current_user.get_task_in_progress('export_posts') %}
+    <p class="export">
+        <a href="{{ url_for('main.export_posts') }}">
+            {{ _('Export your posts (json)') }}
+        </a>
+    </p>
+    {% else %}
+    <p class="export inactive_link">{{ _('Export your posts (json)') }}</p>
+    {% endif %}
 
     <hr class="thick">
     {% if user == current_user %}

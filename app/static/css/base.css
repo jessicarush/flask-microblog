@@ -82,6 +82,9 @@ p.single_line_info {
 p.register_reset_link {
 	margin: 0;
 }
+p.export {
+	margin: 0 0 5px 0;
+}
 .pop p {
 	font-size: 13px;
 	margin: 0;
@@ -195,19 +198,19 @@ span.translation {
 	color: rgba(61, 77, 98, 0.7);
 }
 .badge {
-	font-size: 0.6em;
-	font-weight: 700;
+	font-size: 0.7em;
+	font-weight: 600;
 	line-height: 1em;
 	display: inline-block;
 	text-align: center;
-	padding: 3px 4px;
+	padding: 2px 4px;
 	color: #fff;
 	background: #FF1010;
 	border-radius: 10px;
 	position: relative;
 	top: -0.1em;
 }
-.error {
+.error, .progress {
 	color: #FB3F40;
 	font-weight: 600;
 }
