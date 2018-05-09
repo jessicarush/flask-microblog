@@ -164,7 +164,7 @@ a.mail_small:link, a.mail_small:visited {
 a.mail_tiny:link, a.mail_tiny:visited {
 	color: rgb(180, 180, 180);
 	font-size: 12px;
-	padding-left: 10px;
+	padding-left: 12px;
 	font-weight: 600;
 }
 a.mail_large:hover, a.mail_large:active,
@@ -195,12 +195,12 @@ span.translation {
 	color: rgba(61, 77, 98, 0.7);
 }
 .badge {
-	font-size: 0.7em;
-	font-weight: 600;
+	font-size: 0.6em;
+	font-weight: 700;
 	line-height: 1em;
 	display: inline-block;
 	text-align: center;
-	padding: 2px 4px;
+	padding: 3px 4px;
 	color: #fff;
 	background: #FF1010;
 	border-radius: 10px;
