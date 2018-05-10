@@ -14,7 +14,7 @@ class Config(object):
     LANGUAGES = ['en', 'es', 'fr']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
-    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://localhost:6379'
 
     # For emailing error log:
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
