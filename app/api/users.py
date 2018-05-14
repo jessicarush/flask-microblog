@@ -107,3 +107,40 @@ def update_user(id):
 # token:
 
 # $ http DELETE http://localhost:5000/api/tokens "Authorization:Bearer <token>"
+
+
+# zebro.id api request examples
+# -----------------------------------------------------------------------------
+
+# get a token:
+'''
+$ http --auth soylant:password POST https://zebro.id/api/tokens
+'''
+# get a user:
+'''
+$ http GET https://zebro.id/api/users/1 "Authorization:Bearer <token>"
+'''
+# get all users:
+'''
+$ http GET https://zebro.id/api/users "Authorization:Bearer <token>"
+'''
+# get followers:
+'''
+http GET https://zebro.id/api/users/1/followers "Authorization:Bearer <token>"
+'''
+# get following:
+'''
+http GET https://zebro.id/api/users/1/following "Authorization:Bearer <token>"
+'''
+# update user:
+'''
+http PUT https://zebro.id/api/users/4 "Authorization:Bearer <token>" "about_me=Hello, I am a update."
+'''
+# revoke token:
+'''
+http DELETE https://zebro.id/api/tokens "Authorization:Bearer <token>"
+'''
+# new user:
+'''
+http POST https://zebro.id/api/users username=test password=password email=test@example.com "about_me=Hello, my name is Test!"
+'''
