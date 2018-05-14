@@ -1,7 +1,7 @@
 '''
 User API routes:
 
-HTTP    Resource URL 	              Notes
+HTTP    Resource URL                  Notes
 GET     /api/users/<id> 	          Return a user.
 GET 	/api/users 	                  Return the collection of all users.
 GET 	/api/users/<id>/followers 	  Return the followers of this user.
@@ -113,34 +113,25 @@ def update_user(id):
 # -----------------------------------------------------------------------------
 
 # get a token:
-'''
-$ http --auth soylant:password POST https://zebro.id/api/tokens
-'''
+# $ http --auth soylant:password POST https://zebro.id/api/tokens
+
 # get a user:
-'''
-$ http GET https://zebro.id/api/users/1 "Authorization:Bearer <token>"
-'''
+# $ http GET https://zebro.id/api/users/1 "Authorization:Bearer <token>"
+
 # get all users:
-'''
-$ http GET https://zebro.id/api/users "Authorization:Bearer <token>"
-'''
+# $ http GET https://zebro.id/api/users "Authorization:Bearer <token>"
+
 # get followers:
-'''
-http GET https://zebro.id/api/users/1/followers "Authorization:Bearer <token>"
-'''
+# $ http GET https://zebro.id/api/users/1/followers "Authorization:Bearer <token>"
+
 # get following:
-'''
-http GET https://zebro.id/api/users/1/following "Authorization:Bearer <token>"
-'''
+# $ http GET https://zebro.id/api/users/1/following "Authorization:Bearer <token>"
+
 # update user:
-'''
-http PUT https://zebro.id/api/users/4 "Authorization:Bearer <token>" "about_me=Hello, I am a update."
-'''
+# $ http PUT https://zebro.id/api/users/4 "Authorization:Bearer <token>" "about_me=Hello, I am a update."
+
 # revoke token:
-'''
-http DELETE https://zebro.id/api/tokens "Authorization:Bearer <token>"
-'''
+# $ http DELETE https://zebro.id/api/tokens "Authorization:Bearer <token>"
+
 # new user:
-'''
-http POST https://zebro.id/api/users username=test password=password email=test@example.com "about_me=Hello, my name is Test!"
-'''
+# $ http POST https://zebro.id/api/users username=test password=password email=test@example.com "about_me=I am a Test!"
