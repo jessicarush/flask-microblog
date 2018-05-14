@@ -300,11 +300,17 @@ img.loading {
 	height: 100%;
 }
 .error_page {
-	margin: 50px auto;
-	padding: 0 25px 25px 25px;
-	width: 380px;
-	background: url(../img/lightpaperfibers.png);
-	border: solid 5px #3d4d62;
+	margin: 100px auto;
+	padding: 25px;
+	text-align: center;
+	width: 435px;
+}
+.error_page h1, .error_page p {
+	color: #fff;
+	text-shadow: 0px 0px 5px rgba(40, 40, 40, 0.7);
+}
+.error_page p {
+	font-size: 18px;
 }
 ::selection {
   background: #3d4d62;
