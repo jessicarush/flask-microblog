@@ -78,6 +78,14 @@ def create_user():
 def update_user(id):
     user = User.query.get_or_404(id)
     data = request.get_json() or {}
+    # to prevent users from changing other users information, we need to
+    # check that the token provided matches the user ID provided.
+    # The header token includes the word Bearer and a space before the actual
+    # token, so we'll remove that before checking.
+    token = request.headers.get('Authorization').lstrip('Bearer ')
+    if token != user.token:
+        return bad_request('The token provided does not match the user id... '
+                           'you cannot modify other users data.')
     if 'username' in data and data['username'] != user.username and \
             User.query.filter_by(username=data['username']).first():
         return bad_request('that username is already taken')
@@ -135,3 +143,17 @@ def update_user(id):
 
 # new user:
 # $ http POST https://zebro.id/api/users username=test password=password email=test@example.com "about_me=I am a Test!"
+
+
+# request notes
+# -----------------------------------------------------------------------------
+# request.headers will return a dictionary like this:
+
+# Host: 127.0.0.1:5000
+# User-Agent: HTTPie/0.9.9
+# Accept-Encoding: gzip, deflate
+# Accept: application/json, */*
+# Connection: keep-alive
+# Content-Type: application/json
+# Authorization: Bearer YNjCBw0I7LCe7nzTk4ydELZgtUILJxlO
+# Content-Length: 35
