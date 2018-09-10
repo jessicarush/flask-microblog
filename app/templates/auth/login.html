@@ -22,13 +22,9 @@
             {{ form.password(class="single") }}<br>
         </p>
 
-        {{ form.remember_me(class="check", checked="True") }} {{ form.remember_me.label }}
-
-        <p class="register_reset_link">
-            <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Reset your password') }}?</a>
-        </p>
-
-
+        <p>
+        {{ form.remember_me(class="check", checked="True") }} {{ form.remember_me.label }} <span class="separator">&nbsp;|&nbsp;</span> 
+        <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Forgot password') }}?</a>
 
         <p class="button">{{ form.submit(class="button") }}</p>
     </form>

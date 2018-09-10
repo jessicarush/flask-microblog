@@ -44,7 +44,7 @@
         <a href="{{ url_for('main.user', username=post.author.username) }}" class="avatar">
             <img src="{{ post.author.avatar(200) }}" class="avatar_med">
         </a>
-        <h2 class="pop">
+        <h2 class="pop__heading">
             <a href="{{ url_for('main.user', username=post.author.username) }}">
                 {{ post.author.username.title() }}
             </a>
@@ -64,7 +64,7 @@
         <p><strong>{{ _('Followers') }}:</strong> {{ post.author.followers.count() }}</p>
         <p><strong>{{ _('Following') }}:</strong> {{ post.author.following.count() }}</p>
 
-        <hr class="thin">
+        <hr class="thin-divider">
 
         <p><strong>{{ _('About me') }}:</strong>
         {% if post.author.about_me %}

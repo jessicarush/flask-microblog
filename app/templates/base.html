@@ -1,183 +1,188 @@
-<html>
-    <head>
-        <!-- conditional statements -->
-        {% if title %}
-        <title>{{ title }} | Microblog</title>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- conditional statements -->
+  {% if title %}
+    <title>{{ title }} | Microblog</title>
+  {% else %}
+    <title>Microblog</title>
+  {% endif %}
+
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=400">
+
+  <link href="{{ url_for('static', filename='img/favicon.ico' )}}" rel="shortcut icon" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Ovo" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/mobile.css' )}}" rel="stylesheet" media="only screen and (min-width: 0px) and (max-width: 480px)" >
+  <link href="{{ url_for('static', filename='css/base.css' )}}" rel="stylesheet" media="only screen and (min-width: 481px)" >
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.webui-popover.min.css' )}}">
+  <link href="{{ url_for('static', filename='css/fontawesome-all.css' )}}" rel="stylesheet">
+
+  {{ moment.include_jquery() }}
+  {{ moment.include_moment() }}
+  {{ moment.lang(g.locale) }}
+
+  <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+</head>
+
+
+<body>
+  <div class="container">
+
+    <header>
+      <a href="{{ url_for('main.index') }}" class="title"> Microblog:</a>
+      <span class="main-nav-center">
+        <a href="{{ url_for('main.about') }}">{{ _('About') }}</a>
+        <a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+        <a href="{{ url_for('main.messages') }}">{{ _('Messages') }}
+          {% set new_messages = current_user.new_messages() %}
+          <span id="message_count" class="badge" style="background: {% if new_messages %}#FB3F40 {% else %}#D2D2D2 {% endif %};">
+            {{ new_messages }}
+          </span>
+        </a>
+        {% endif %}
+      </span>
+      <span class="main-nav-right">
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
         {% else %}
-        <title>Microblog</title>
+        <a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
         {% endif %}
+      </span>
 
-        <meta name="viewport" content="width=device-width">
-        <meta name="viewport" content="width=400">
-
-        <link href="{{ url_for('static', filename='img/favicon.ico' )}}" rel="shortcut icon" type="image/x-icon">
-        <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Ovo" rel="stylesheet">
-        <link href="{{ url_for('static', filename='css/mobile.css' )}}" rel="stylesheet" media="only screen and (min-width: 0px) and (max-width: 480px)" >
-        <link href="{{ url_for('static', filename='css/base.css' )}}" rel="stylesheet" media="only screen and (min-width: 481px)" >
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.webui-popover.min.css' )}}">
-        <link href="{{ url_for('static', filename='css/fontawesome-all.css' )}}" rel="stylesheet">
-
-        {{ moment.include_jquery() }}
-        {{ moment.include_moment() }}
-        {{ moment.lang(g.locale) }}
-
-        <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
-
-    </head>
-
-    <body>
-    <div class="container">
-        <div class="header">
-            <a href="{{ url_for('main.index') }}" class="title"> Microblog:</a>
-            <span class="main_nav_center">
-                <a href="{{ url_for('main.about') }}">{{ _('About') }}</a>
-                <a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
-                {% if current_user.is_authenticated %}
-                <a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
-                <a href="{{ url_for('main.messages') }}">{{ _('Messages') }}
-                    {% set new_messages = current_user.new_messages() %}
-                    <span id="message_count" class="badge" style="background: {% if new_messages %}#FB3F40 {% else %}#D2D2D2 {% endif %};">
-                        {{ new_messages }}
-                    </span>
-                </a>
-                {% endif %}
-            </span>
-            <span class="main_nav_right">
-                {% if current_user.is_anonymous %}
-                    <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
-                {% else %}
-                    <a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
-                {% endif %}
-            </span>
-
-            <hr class="thick">
-            <!-- search field -->
-            {% if g.search_form %}
-            <form method="get" class="search" action="{{ url_for('main.search') }}">
-                {{ g.search_form.q(class='search', placeholder=g.search_form.q.label.text) }}
-            </form>
-            {% endif %}
-            <!-- the other forms have the action attribute empty, because they
-            were submitted to the same page that rendered the form. This form
-            is special because it appears in all pages, so we need to tell it
-            explicitly where it needs to be submitted, which is a new route
-            that is specifically dedicated to handling searches. This form
-            uses get instead of post, because we want to have the search query
-            be part of the url, so if someone want to bookmark or share the
-            result page, they can (but you can only see the oage if you're
-            logged in of course) -->
-        </div>
+      <hr class="thick-divider">
+      <!-- search field -->
+      {% if g.search_form %}
+      <form method="get" class="search" action="{{ url_for('main.search') }}">
+        {{ g.search_form.q(class='search', placeholder=g.search_form.q.label.text) }}
+      </form>
+      {% endif %}
+      <!-- the other forms have the action attribute empty, because they
+      were submitted to the same page that rendered the form. This form
+      is special because it appears in all pages, so we need to tell it
+      explicitly where it needs to be submitted, which is a new route
+      that is specifically dedicated to handling searches. This form
+      uses get instead of post, because we want to have the search query
+      be part of the url, so if someone want to bookmark or share the
+      result page, they can (but you can only see the oage if you're
+      logged in of course) -->
+    </header>
 
 
-        <div class="content">
-        <!-- display flashed messages -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class="error">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {%  endfor %}
-        </ul>
-        {%  endif %}
-        {%  endwith %}
+    <main>
+      <!-- display flashed messages -->
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class="error">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {%  endfor %}
+      </ul>
+      {%  endif %}
+      {%  endwith %}
 
-        <!-- display progress alert -->
-        {% if current_user.is_authenticated %}
-        {% with tasks = current_user.get_tasks_in_progress() %}
-        {% if tasks %}
-            {% for task in tasks %}
-            <div class="progress">
-                {{ task.description }}
-                <span id="{{ task.id }}-progress">{{ task.get_progress() }}</span>%
-            </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-        {% endif %}
+      <!-- display progress alert -->
+      {% if current_user.is_authenticated %}
+      {% with tasks = current_user.get_tasks_in_progress() %}
+      {% if tasks %}
+      {% for task in tasks %}
+      <div class="progress">
+        {{ task.description }}
+        <span id="{{ task.id }}-progress">{{ task.get_progress() }}</span>%
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      {% endif %}
 
-        <!-- template inheritance -->
-        {% block content %}{% endblock %}
+      <!-- template inheritance -->
+      {% block content %}{% endblock %}
 
-        </div>
+    </main>
 
-        <footer>
-            <hr class="thick">
-            Thanks for visting. For more projects visit cyanred.
-        </footer>
-    </div>
+    <footer>
+      <hr class="thick-divider">
+      Thanks for visting. For more projects visit cyanred.
+    </footer>
+  </div>
 
-    <script>
-        function translate(sourceElem, destElem, sourceLang, destLang) {
-            $(destElem).html('<img src="{{ url_for('static', filename='img/loading.gif') }}" class="loading">');
-            $.post('/translate', {
-                text: $(sourceElem).text(),
-                source_language: sourceLang,
-                dest_language: destLang
-            }).done(function(response) {
-                $(destElem).text(response['text'])
-            }).fail(function() {
-                $(destElem).text("{{ _('Error: Could not contact server.') }}");
-            });
-        }
-        function set_message_count(n) {
-            $('#message_count').text(n);
-            $('#message_count').css('background', n ? '#FB3F40' : '#D2D2D2');
-        }
-        {% if current_user.is_authenticated %}
-        $(function() {
-            var since = 0;
-            setInterval(function() {
-                $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(
-                    function(notifications) {
-                        for (var i = 0; i < notifications.length; i++) {
-                            switch (notifications[i].name) {
-                                case 'unread_message_count':
-                                    set_message_count(notifications[i].data);
-                                    break;
-                                case 'task_progress':
-                                    set_task_progress(
-                                        notifications[i].data.task_id,
-                                        notifications[i].data.progress);
-                                    break;
-                            }
-                            since = notifications[i].timestamp;
-                        }
-                    }
-                );
-            }, 5000);
-        });
-        {% endif %}
+  <script>
+  function translate(sourceElem, destElem, sourceLang, destLang) {
+    $(destElem).html('<img src="{{ url_for('static', filename='img/loading.gif') }}" class="loading">');
+    $.post('/translate', {
+      text: $(sourceElem).text(),
+      source_language: sourceLang,
+      dest_language: destLang
+    }).done(function(response) {
+      $(destElem).text(response['text'])
+    }).fail(function() {
+      $(destElem).text("{{ _('Error: Could not contact server.') }}");
+    });
+  }
+  function set_message_count(n) {
+    $('#message_count').text(n);
+    $('#message_count').css('background', n ? '#FB3F40' : '#D2D2D2');
+  }
+  {% if current_user.is_authenticated %}
+  $(function() {
+    var since = 0;
+    setInterval(function() {
+      $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(
+        function(notifications) {
+          for (var i = 0; i < notifications.length; i++) {
+            switch (notifications[i].name) {
+              case 'unread_message_count':
+              set_message_count(notifications[i].data);
+              break;
+              case 'task_progress':
+              set_task_progress(
+                notifications[i].data.task_id,
+                notifications[i].data.progress);
+                break;
+              }
+              since = notifications[i].timestamp;
+            }
+          }
+        );
+      }, 5000);
+    });
+    {% endif %}
 
-        function set_task_progress(task_id, progress) {
-            $('#' + task_id + '-progress').text(progress);
-        }
+    function set_task_progress(task_id, progress) {
+      $('#' + task_id + '-progress').text(progress);
+    }
     </script>
 
 
-    </body>
-</html>
+  </body>
+  </html>
 
 
-{# <!-- Regarding the links above, they could be written as <a href='/index'>.
-The problem with writing links directly in templates and source files is that
-if one day you decide to reorganize your links, then you are going to have to
-search and replace these links in your entire application. To have better
-control, Flask provides the url_for() function, which generates URLs using its
-internal mapping of URLs to view functions. For example, url_for('login')
-returns /login. The argument to url_for() is the endpoint name, which is the
-name of the view function.
+  {# <!-- Regarding the links above, they could be written as <a href='/index'>.
+    The problem with writing links directly in templates and source files is that
+    if one day you decide to reorganize your links, then you are going to have to
+    search and replace these links in your entire application. To have better
+    control, Flask provides the url_for() function, which generates URLs using its
+    internal mapping of URLs to view functions. For example, url_for('login')
+    returns /login. The argument to url_for() is the endpoint name, which is the
+    name of the view function.
 
-The get_flashed_messages() function comes from Flask, and returns a
-list of all the messages that have been registered with flash() previously.
-An interesting property of these flashed messages is that once they are
-requested through the get_flashed_messages function they are removed from the
-message list, so they appear only once after the flash() function is called.
+    The get_flashed_messages() function comes from Flask, and returns a
+    list of all the messages that have been registered with flash() previously.
+    An interesting property of these flashed messages is that once they are
+    requested through the get_flashed_messages function they are removed from the
+    message list, so they appear only once after the flash() function is called.
 
-The is_anonymous property is one of the attributes that Flask-Login adds to
-user objects through the UserMixin class.
+    The is_anonymous property is one of the attributes that Flask-Login adds to
+    user objects through the UserMixin class.
 
-To effectively display timezones we need to include moment.js. The most direct
-way is to explicitly add a <script> tag that imports the library, but
-Flask-Moment makes it easier, by exposing a moment.include_moment() function
-that generates the <script> tag
---> #}
+    To effectively display timezones we need to include moment.js. The most direct
+    way is to explicitly add a <script> tag that imports the library, but
+    Flask-Moment makes it easier, by exposing a moment.include_moment() function
+    that generates the <script> tag
+  --> #}

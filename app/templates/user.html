@@ -4,7 +4,7 @@
 <div class="profile">
     <h1>{{ _('Profile & posts') }}.</h1>
     <img src="{{ user.avatar(200) }}" class="avatar">
-    <h2 class="profile">
+    <h2 class="profile__heading">
         {{ user.username.title() }}
         <div class="profile_link">
             <a class="mail_large" title="send private message" href="{{ url_for('main.send_message', recipient=user.username) }}"><i class="fas fa-envelope"></i></a>
@@ -17,8 +17,8 @@
             {% endif %}
         </div>
     </h2>
-    <p class="single_line_info"><strong>{{ _('Followers') }}:</strong> {{ user.followers.count() }}</p>
-    <p class="single_line_info"><strong>{{ _('Following') }}:</strong> {{ user.following.count() }}</p>
+    <p class="u-bottom-margin-m"><strong>{{ _('Followers') }}:</strong> {{ user.followers.count() }}</p>
+    <p class="u-bottom-margin-m"><strong>{{ _('Following') }}:</strong> {{ user.following.count() }}</p>
 
     {% if user.last_seen %}
     <p><strong>{{ _('Last visit') }}:</strong>
@@ -35,21 +35,21 @@
 
     {% if user == current_user %}
         {% if not current_user.get_task_in_progress('export_posts') %}
-        <p class="export">
+        <p class="u-bottom-margin-m">
             <a href="{{ url_for('main.export_posts') }}">
                 {{ _('Export your posts (json)') }}
             </a>
         </p>
         {% else %}
-        <p class="export inactive_link">{{ _('Export your posts (json)') }}</p>
+        <p class="u-bottom-margin-s inactive_link">{{ _('Export your posts (json)') }}</p>
         {% endif %}
     {% endif %}
 
-    <hr class="thick">
+    <hr class="thick-divider">
     {% if user == current_user %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
-        <p class="post">
+        <p class="u-space-above">
             {{ form.post.label }}<br>
             <!-- Display error message if field empty or exceedes max -->
             {% for error in form.post.errors %}
