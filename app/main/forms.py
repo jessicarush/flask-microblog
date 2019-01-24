@@ -56,6 +56,16 @@ class MessageForm(FlaskForm):
 
 
 
+# Notes
+# -----------------------------------------------------------------------------
+# If you want more than one form on a page, the submit buttons must have unique
+# names. In addition, when processing the form in the route, you'll need to
+# say:
+
+# if password_form.submit_password.data and password_form.validate_on_submit()
+
+# instaed of the regular old: if password_form.validate_on_submit()
+
 # In the EditProfileForm, the three methods are in place to prevent the bug
 # where someone could change their username or email to one that is already
 # in the database and cause a server error. This is not a perfect solution,
