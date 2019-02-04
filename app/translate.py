@@ -4,18 +4,45 @@ from flask import current_app
 from flask_babel import _
 
 
+# def translate(text, source_language, dest_language):
+#     if 'MS_TRANSLATOR_KEY' not in current_app.config or not current_app.config['MS_TRANSLATOR_KEY']:
+#         return _('Error: translation service is not configured.')
+#
+#     auth = {'Ocp-Apim-Subscription-Key': current_app.config['MS_TRANSLATOR_KEY']}
+#     url = ('https://api.microsofttranslator.com/v2/Ajax.svc/Translate?'
+#            'text={}&from={}&to={}'.format(text, source_language, dest_language))
+#     r = requests.get(url, headers=auth)
+#
+#     if r.status_code != 200:
+#         return _('Error: translation service failed.')
+#     return json.loads(r.content.decode('utf-8-sig'))
+
+
 def translate(text, source_language, dest_language):
     if 'MS_TRANSLATOR_KEY' not in current_app.config or not current_app.config['MS_TRANSLATOR_KEY']:
         return _('Error: translation service is not configured.')
 
+    base_url = 'https://api.cognitive.microsofttranslator.com'
+    path = '/translate?api-version=3.0'
+    params = '&from={}&to={}'.format(source_language, dest_language)
+    url = base_url + path + params
     auth = {'Ocp-Apim-Subscription-Key': current_app.config['MS_TRANSLATOR_KEY']}
-    url = ('https://api.microsofttranslator.com/v2/Ajax.svc/Translate?'
-           'text={}&from={}&to={}'.format(text, source_language, dest_language))
-    r = requests.get(url, headers=auth)
+    body = [{'text': text}]
+
+    r = requests.post(url, headers=auth, json=body)
+
+    # You can get the response like this:
+    # response = r.json()
+    # It looks like this:
+    # print(response)
+    # [{'translations': [{'text': "Bonjour", 'to': 'fr'}]}]
+    # To get just the translated text:
+    # print(response[0]['translations'][0]['text'])
 
     if r.status_code != 200:
         return _('Error: translation service failed.')
-    return json.loads(r.content.decode('utf-8-sig'))
+
+    return r.json()[0]['translations'][0]['text']
 
 
 # Note this code is for the Ajax translation of the user posts only

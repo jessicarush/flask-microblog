@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-09 11:01-0700\n"
+"POT-Creation-Date: 2019-02-04 12:15-0800\n"
 "PO-Revision-Date: 2018-03-01 13:45-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Please log in to access that page."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: app/translate.py:9
+#: app/translate.py:23
 msgid "Error: translation service is not configured."
 msgstr "Erreur: le service de traduction n'est pas configuré."
 
-#: app/translate.py:17
+#: app/translate.py:43
 msgid "Error: translation service failed."
 msgstr "Erreur: le service de traduction a échoué."
 
@@ -256,31 +256,31 @@ msgstr ""
 msgid "Future features & fixes"
 msgstr "Fonctionnalités et correctifs futurs"
 
-#: app/templates/base.html:33
+#: app/templates/base.html:37
 msgid "About"
 msgstr "Sur"
 
-#: app/templates/base.html:34
+#: app/templates/base.html:38
 msgid "Explore"
 msgstr "Explorer"
 
-#: app/templates/base.html:36
+#: app/templates/base.html:40
 msgid "Profile"
 msgstr "Profil"
 
-#: app/templates/base.html:37 app/templates/messages.html:5
+#: app/templates/base.html:41 app/templates/messages.html:5
 msgid "Messages"
 msgstr "Messages"
 
-#: app/templates/base.html:47
+#: app/templates/base.html:51
 msgid "Login"
 msgstr "Se connecter"
 
-#: app/templates/base.html:49
+#: app/templates/base.html:53
 msgid "Logout"
 msgstr "se déconnecter"
 
-#: app/templates/base.html:119
+#: app/templates/base.html:123
 msgid "Error: Could not contact server."
 msgstr "Erreur: Impossible de contacter le serveur."
 
@@ -311,12 +311,12 @@ msgid "Recent posts"
 msgstr "Messages récents"
 
 #: app/templates/index.html:36 app/templates/index.html:38
-#: app/templates/user.html:71 app/templates/user.html:73
+#: app/templates/user.html:72 app/templates/user.html:74
 msgid "newer posts"
 msgstr "messages plus récents"
 
 #: app/templates/index.html:42 app/templates/index.html:44
-#: app/templates/user.html:77 app/templates/user.html:79
+#: app/templates/user.html:78 app/templates/user.html:80
 msgid "older posts"
 msgstr "messages plus anciens"
 
@@ -361,9 +361,9 @@ msgstr "Derniere visite"
 msgid "Export your posts (json)"
 msgstr "Exporter vos messages (json)"
 
-#: app/templates/auth/login.html:28
-msgid "Reset your password"
-msgstr "réinitialisez votre mot de passe"
+#: app/templates/auth/login.html:27
+msgid "Forgot password"
+msgstr "Mot de passe oublié"
 
 #: app/templates/auth/reset_password.html:4
 msgid "Set password"
@@ -409,15 +409,15 @@ msgid "Whoops, it's a 404"
 msgstr "Oups, c'est un 404"
 
 #: app/templates/errors/404.html:12
-msgid "Page not found, now let's"
-msgstr "Page non trouvée."
+msgid "Page not found, so let's"
+msgstr "Page non trouvée,"
 
 #: app/templates/errors/404.html:12 app/templates/errors/500.html:12
 msgid "move on."
 msgstr "Allons-nous en."
 
 #: app/templates/errors/500.html:11
-msgid "Shit, an internal server error."
+msgid "Shit, an internal error."
 msgstr "Merde, une erreur interne du serveur."
 
 #: app/templates/errors/500.html:12
@@ -436,8 +436,14 @@ msgstr "C'est noté."
 #~ msgid "Register here"
 #~ msgstr "Inscrivez-vous ici"
 
+#~ msgid "Forgot your password? Reset it here"
+#~ msgstr "Mot de passe oublié? Réinitialiser ici."
+
 #~ msgid "Forgot password:"
 #~ msgstr "Mot de passe oublié:"
 
-#~ msgid "Forgot your password? Reset it here"
-#~ msgstr "Mot de passe oublié? Réinitialiser ici."
+#~ msgid "Page not found, now let's"
+#~ msgstr "Page non trouvée."
+
+#~ msgid "Shit, an internal server error."
+#~ msgstr "Merde, une erreur interne du serveur."
