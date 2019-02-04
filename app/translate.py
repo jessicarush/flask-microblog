@@ -18,6 +18,13 @@ from flask_babel import _
 #     return json.loads(r.content.decode('utf-8-sig'))
 
 
+# NOTE: MS Translator changed from V2 to V3
+# https://docs.microsoft.com/en-us/azure/cognitive-services/translator/quickstart-python-translate
+# https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl
+# https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python/blob/master/Translate.py
+
+
+
 def translate(text, source_language, dest_language):
     if 'MS_TRANSLATOR_KEY' not in current_app.config or not current_app.config['MS_TRANSLATOR_KEY']:
         return _('Error: translation service is not configured.')
