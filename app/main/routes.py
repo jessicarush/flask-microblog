@@ -308,8 +308,8 @@ def export_posts():
 # The value of this variable can be a user object from the database (which
 # Flask-Login reads through the @login.user_loader callback in models.py),
 # or a special anonymous user object if the user did not log in yet.
-# is_authenticated (one of the one of the Flask-Login required properties
-# that's made for us in the UserMixin) checks if the user is logged in or not.
+# is_authenticated (one of the Flask-Login required properties that's made
+# for us in the UserMixin) checks if the user is logged in or not.
 
 # When a user that is not logged in accesses a view function protected with the
 # @login_required decorator, the decorator is going to redirect to the
