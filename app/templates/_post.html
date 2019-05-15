@@ -31,13 +31,14 @@
 
         </span>
         {% endif %}
+      </p>
 
-        <p class="post_dates">{{ moment(post.timestamp).fromNow() }}
-        {% if current_user != post.author %}
-            <a class="mail_tiny" title="send private message" href="{{ url_for('main.send_message', recipient=post.author.username) }}"><i class="fas fa-envelope"></i> Send {{ post.author.username.title() }} a message</a>
-        {% endif %}
-        </p>
-    </p>
+      <p class="post_dates">{{ moment(post.timestamp).fromNow() }}
+      {% if current_user != post.author %}
+          <a class="mail_tiny" title="send private message" href="{{ url_for('main.send_message', recipient=post.author.username) }}"><i class="fas fa-envelope"></i> Send {{ post.author.username.title() }} a message</a>
+      {% endif %}
+      </p>
+
     <hr class="clear">
 
     <div id="pop{{ post.id }}" class="pop" style="display:none;">
