@@ -64,7 +64,7 @@ class MessageForm(FlaskForm):
 
 # if password_form.submit_password.data and password_form.validate_on_submit()
 
-# instaed of the regular old: if password_form.validate_on_submit()
+# instead of the regular old: if password_form.validate_on_submit()
 
 # In the EditProfileForm, the three methods are in place to prevent the bug
 # where someone could change their username or email to one that is already
