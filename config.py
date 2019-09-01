@@ -25,6 +25,10 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['jesskrush@me.com']
 
+    # Extend csrf token expirey to 1 week
+    # Note: If set to None, the CSRF token is valid for the life of the session
+    WTF_CSRF_TIME_LIMIT = None
+
 
 # Flask (and possibly some Flask extensions you use) offer some amount of
 # freedom in how to do things. You can pass preferences to the framework
