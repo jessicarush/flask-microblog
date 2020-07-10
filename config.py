@@ -29,6 +29,10 @@ class Config(object):
     # Note: If set to None, the CSRF token is valid for the life of the session
     WTF_CSRF_TIME_LIMIT = None
 
+    # To address cookie security
+    SESSION_COOKIE_SECURE = True
+    REMEMBER_COOKIE_SECURE = True
+
 
 # Flask (and possibly some Flask extensions you use) offer some amount of
 # freedom in how to do things. You can pass preferences to the framework
