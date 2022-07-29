@@ -593,7 +593,7 @@ def example_posts(self):
 # SearchableMixin()
 # -----------------------------------------------------------------------------
 # Just as a reminder, a class method is associated with the class and not a
-# particular instance. The use of cls instaed of self, makes it clear that
+# particular instance. The use of cls instead of self, makes it clear that
 # this method receives a class and not an instance as its first argument. Once
 # attached to the Post model for example, the search() method above would be
 # invoked as Post.search(), without having to have an actual instance of class.
